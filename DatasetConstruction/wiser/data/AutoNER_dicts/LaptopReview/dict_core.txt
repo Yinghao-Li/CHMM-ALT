@@ -1,0 +1,272 @@
+AspectTerm	" sales " team
+AspectTerm	1 GB of RAM
+AspectTerm	1 GB ram
+AspectTerm	1-year - warranty
+AspectTerm	10-key
+AspectTerm	12 cell battery
+AspectTerm	13 inch
+AspectTerm	15 "
+AspectTerm	15 inch
+AspectTerm	16 GB RAM support
+AspectTerm	17 "
+AspectTerm	17 " inch screen
+AspectTerm	17 ince screen
+AspectTerm	17 inch screen
+AspectTerm	17-inch screen
+AspectTerm	18-inch
+AspectTerm	18.4 " screen
+AspectTerm	2 GB RAM stick
+AspectTerm	2 GB of RAM
+AspectTerm	2 GB stick of memory
+AspectTerm	22 " Monitor
+AspectTerm	3 G network
+AspectTerm	3 year warranty
+AspectTerm	30 " HD Monitor
+AspectTerm	4 GB of RAM
+AspectTerm	4 GB stick of RAM
+AspectTerm	500 gb external hard drive
+AspectTerm	500 gb hard drive
+AspectTerm	8 GB RAM
+AspectTerm	8 GB of RAM
+AspectTerm	9 punds
+AspectTerm	AC power
+AspectTerm	Adobe Flash
+AspectTerm	Adobe Flash player
+AspectTerm	Antivirus software
+AspectTerm	Apple Mac
+AspectTerm	Apple OS
+AspectTerm	Back up
+AspectTerm	Bells and whistles
+AspectTerm	Bluetooth mouse
+AspectTerm	Boot Camp
+AspectTerm	Boot up
+AspectTerm	Burn CD
+AspectTerm	CD drive
+AspectTerm	Call center
+AspectTerm	Card reader
+AspectTerm	Clip Art
+AspectTerm	Command prompt
+AspectTerm	Cordless mouse
+AspectTerm	Core i5
+AspectTerm	Core i7
+AspectTerm	Customer service
+AspectTerm	Customer support
+AspectTerm	DVD burner
+AspectTerm	DVD drive
+AspectTerm	DVD player
+AspectTerm	Desktop background
+AspectTerm	Disc drive
+AspectTerm	Disk Capacity
+AspectTerm	Disk Drive
+AspectTerm	Disk space
+AspectTerm	Drag and Drop
+AspectTerm	Drop In
+AspectTerm	Dual Boot
+AspectTerm	Extended warranty
+AspectTerm	External drive
+AspectTerm	External hard drive
+AspectTerm	External monitor
+AspectTerm	Fingerprint reader
+AspectTerm	FireWire cable
+AspectTerm	FireWire port
+AspectTerm	Flash Player
+AspectTerm	Flat panel
+AspectTerm	Force quit
+AspectTerm	Form factor
+AspectTerm	Full screen
+AspectTerm	Function keys
+AspectTerm	Genius Bar
+AspectTerm	Google Chrome
+AspectTerm	Graphic artist
+AspectTerm	Graphic card
+AspectTerm	Graphic design
+AspectTerm	Graphics card
+AspectTerm	HD
+AspectTerm	HDMI cable
+AspectTerm	HDMI port
+AspectTerm	Hard disc
+AspectTerm	Hard disk
+AspectTerm	Hard drive
+AspectTerm	Hard reboot
+AspectTerm	Headphone jack
+AspectTerm	Heat sink
+AspectTerm	Internal hard disk
+AspectTerm	Internet Explorer
+AspectTerm	Internet browser
+AspectTerm	Internet connection
+AspectTerm	Ivy Bridge
+AspectTerm	Keyboard
+AspectTerm	LCD screen
+AspectTerm	LED monitor
+AspectTerm	Log on
+AspectTerm	Logic board
+AspectTerm	MS Office
+AspectTerm	MSN Messenger
+AspectTerm	Mac OS
+AspectTerm	Memory card
+AspectTerm	Memory stick
+AspectTerm	Microphone jack
+AspectTerm	Microsoft Office
+AspectTerm	Microsoft Windows
+AspectTerm	Microsoft Word
+AspectTerm	Mini notebook
+AspectTerm	Mountain Lion
+AspectTerm	Mouse button
+AspectTerm	Mouse click
+AspectTerm	Mouse pad
+AspectTerm	Mouse pointer
+AspectTerm	Network connection
+AspectTerm	Numeric pad
+AspectTerm	Nvidia chipset
+AspectTerm	OS
+AspectTerm	OS X
+AspectTerm	Online help
+AspectTerm	Online service
+AspectTerm	Pentium 4
+AspectTerm	Photo editing
+AspectTerm	Photoshop
+AspectTerm	Power cord
+AspectTerm	Power down
+AspectTerm	Power plug
+AspectTerm	Power supply
+AspectTerm	Power switch
+AspectTerm	Processing unit
+AspectTerm	Processor speed
+AspectTerm	Product key
+AspectTerm	Programming software
+AspectTerm	Proprietary hardware
+AspectTerm	Proprietary software
+AspectTerm	Quad core
+AspectTerm	RAM
+AspectTerm	RAM memory
+AspectTerm	RAM slots
+AspectTerm	RAM stick
+AspectTerm	Recovery CD
+AspectTerm	Recovery disk
+AspectTerm	Repair center
+AspectTerm	Retina Display
+AspectTerm	SATA controller
+AspectTerm	SD Card
+AspectTerm	SD Card reader
+AspectTerm	Safe mode
+AspectTerm	Screen
+AspectTerm	Screen brightness
+AspectTerm	Screen resolution
+AspectTerm	Screen size
+AspectTerm	Shift key
+AspectTerm	Sound card
+AspectTerm	Spy ware
+AspectTerm	Start Menu
+AspectTerm	Startup disk
+AspectTerm	Streaming video
+AspectTerm	System board
+AspectTerm	System clock
+AspectTerm	Tech support
+AspectTerm	Technical support
+AspectTerm	Thermal paste
+AspectTerm	This PC
+AspectTerm	Thunderbolt port
+AspectTerm	Touch screen
+AspectTerm	Trial software
+AspectTerm	Trial version
+AspectTerm	USB 2
+AspectTerm	USB port
+AspectTerm	USB ports
+AspectTerm	USB stick
+AspectTerm	User experience
+AspectTerm	User interface
+AspectTerm	VGA port
+AspectTerm	Video card
+AspectTerm	Video editing
+AspectTerm	Video port
+AspectTerm	Video resolution
+AspectTerm	Virus protection
+AspectTerm	Virus scan
+AspectTerm	Vista
+AspectTerm	Web cam
+AspectTerm	WiFi card
+AspectTerm	Windows 7
+AspectTerm	Windows 7 Starter
+AspectTerm	Windows 8
+AspectTerm	Windows Movie Maker
+AspectTerm	Windows OS
+AspectTerm	Windows Server 2008
+AspectTerm	Windows Vista
+AspectTerm	Windows XP
+AspectTerm	Windows XP Professional
+AspectTerm	Windows operating system
+AspectTerm	Wireless card
+AspectTerm	Wireless mouse
+AspectTerm	Word processing
+AspectTerm	applications
+AspectTerm	battery
+AspectTerm	battery life
+AspectTerm	built
+AspectTerm	buttons
+AspectTerm	charge
+AspectTerm	colors
+AspectTerm	cost
+AspectTerm	delivery
+AspectTerm	design
+AspectTerm	display
+AspectTerm	drivers
+AspectTerm	edges
+AspectTerm	fan
+AspectTerm	feature
+AspectTerm	features
+AspectTerm	games
+AspectTerm	gaming
+AspectTerm	graphics
+AspectTerm	hardware
+AspectTerm	hinge
+AspectTerm	iPhoto
+AspectTerm	iTunes
+AspectTerm	keyboard
+AspectTerm	keys
+AspectTerm	look
+AspectTerm	memory
+AspectTerm	motherboard
+AspectTerm	mouse
+AspectTerm	mousepad
+AspectTerm	navigate
+AspectTerm	operating system
+AspectTerm	operation
+AspectTerm	performance
+AspectTerm	portability
+AspectTerm	ports
+AspectTerm	power
+AspectTerm	price
+AspectTerm	priced
+AspectTerm	processor
+AspectTerm	program
+AspectTerm	programs
+AspectTerm	quality
+AspectTerm	runs
+AspectTerm	screen
+AspectTerm	service
+AspectTerm	set up
+AspectTerm	shipping
+AspectTerm	size
+AspectTerm	software
+AspectTerm	sound
+AspectTerm	space
+AspectTerm	speakers
+AspectTerm	specs
+AspectTerm	speed
+AspectTerm	start up
+AspectTerm	storage
+AspectTerm	system
+AspectTerm	touch pad
+AspectTerm	touchpad
+AspectTerm	track pad
+AspectTerm	trackpad
+AspectTerm	use
+AspectTerm	value
+AspectTerm	warranty
+AspectTerm	warrenty
+AspectTerm	web browsing
+AspectTerm	webcam
+AspectTerm	weight
+AspectTerm	windows
+AspectTerm	work
+AspectTerm	works

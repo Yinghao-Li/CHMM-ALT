@@ -1,0 +1,931 @@
+Disease	A - T
+Disease	AAPC
+Disease	AAS
+Disease	AGU
+Disease	AKU
+Disease	ALD
+Disease	AMN
+Disease	Achondrogenesis type 1B
+Disease	ACG1B
+Disease	Addison Disease
+Disease	Addisons Disease
+Disease	Primary Adrenal Insufficiency
+Disease	Primary Adrenocortical Insufficiency
+Disease	Adenomatous Polyposis Coli
+Disease	Adenomatous Intestinal Polyposis
+Disease	Adenomatous Polyposis of the Colon
+Disease	APC
+Disease	Familial Adenomatous Polyposis
+Disease	FAMILIAL ADENOMATOUS POLYPOSIS 1
+Disease	FAMILIAL ADENOMATOUS POLYPOSIS 3
+Disease	FAMILIAL ADENOMATOUS POLYPOSIS 4
+Disease	Familial Adenomatous Polyposis Coli
+Disease	Familial Adenomatous Polyposis of the Colon
+Disease	Familial Intestinal Polyposis
+Disease	Familial Multiple Polyposis
+Disease	Familial Multiple Polyposis Syndrome
+Disease	Familial Polyposis Coli
+Disease	Familial Polyposis of the Colon
+Disease	Familial Polyposis Syndrome
+Disease	Familial Polyposis Syndromes
+Disease	FPC
+Disease	Hereditary Polyposis Coli
+Disease	Polyposis Coli
+Disease	Colorectal Adenoma and Carcinoma 1
+Disease	Desmoid Tumor Caused By Somatic Mutation
+Disease	Adenomatous Polyps
+Disease	Adenomatous Polyp
+Disease	Adrenal Insufficiency
+Disease	ACTH Resistance
+Disease	Aaa Syndrome
+Disease	IMAGE Syndrome
+Disease	Triple A syndrome
+Disease	Adrenocortical Carcinoma
+Disease	Adrenal Cortical Carcinoma
+Disease	Adrenal Cortical Carcinomas
+Disease	Adrenocortical Carcinomas
+Disease	Adrenoleukodystrophy
+Disease	Alstrom Syndrome
+Disease	Alzheimer Disease
+Disease	AD
+Disease	Alzheimer Dementia
+Disease	Alzheimer Sclerosis
+Disease	Alzheimer Syndrome
+Disease	Alzheimer Type Dementia
+Disease	Early Onset Alzheimer Disease
+Disease	Late Onset Alzheimer Disease
+Disease	Presenile Alzheimer Dementia
+Disease	Presenile Dementia
+Disease	Alzheimer Disease 2
+Disease	Alzheimer disease 1
+Disease	Alzheimer disease 3
+Disease	Alzheimer disease 4
+Disease	Alzheimer disease early onset type 3
+Disease	Alzheimer disease type 3
+Disease	Late onset familial Alzheimer disease
+Disease	Amelogenesis Imperfecta
+Disease	Congenital Enamel Hypoplasia
+Disease	Enamel renal syndrome
+Disease	Epilepsy dementia amelogenesis imperfecta
+Disease	Generalized enamel hypoplasia and renal dysfunction
+Disease	Platyspondyly with amelogenesis imperfecta
+Disease	Skeletal dysplasia with amelogenesis imperfecta and platyspondyly
+Disease	Angelman Syndrome
+Disease	AS
+Disease	Angelman syndrome
+Disease	Aniridia
+Disease	Aortic Rupture
+Disease	Aspartylglucosaminuria
+Disease	Ataxia - telangiectasia
+Disease	Ataxia Telangiectasia
+Disease	AT
+Disease	Ataxia Telangiectasia Syndrome
+Disease	Atelosteogenesis type 2
+Disease	AO2
+Disease	AOII
+Disease	Attenuated familial adenomatous polyposis
+Disease	Autoimmune Lymphoproliferative Syndrome
+Disease	ALPS
+Disease	Autoimmune Lymphoproliferative Syndromes
+Disease	Caspase 8 Deficiencies
+Disease	Caspase 8 Deficiency
+Disease	Autoimmune Lymphoproliferative Disease without Fas Mutations
+Disease	Autoimmune lymphoproliferative syndrome without FAS mutations
+Disease	Autosomal Dominant Nocturnal Frontal Lobe Epilepsy
+Disease	BFIC
+Disease	BMD
+Disease	BPAD
+Disease	Bacterial Infections
+Disease	Bacterial Infection
+Disease	Becker muscular dystrophy
+Disease	Bipolar Disorder
+Disease	Bipolar Depression
+Disease	Bipolar Disorders
+Disease	Mania
+Disease	Manic Disorder
+Disease	Manic Disorders
+Disease	Manic State
+Disease	Manic States
+Disease	Brugada Syndrome
+Disease	Brugada Syndrome 1
+Disease	Sudden Unexplained Death Syndrome
+Disease	Sudden Unexplained Nocturnal Death Syndrome
+Disease	C2 - deficient
+Disease	C2 deficiency
+Disease	C3 deficiency
+Disease	C5 - deficient
+Disease	C5 deficiency
+Disease	C5D
+Disease	C6 deficiency
+Disease	C7 deficiency
+Disease	C9 Deficiency
+Disease	C9 DEFICIENCY
+Disease	Complement Component 9 Deficiency
+Disease	C9 deficiency
+Disease	CETP deficiency
+Disease	CHH
+Disease	CHM
+Disease	CP
+Disease	CTX
+Disease	Canavan Disease
+Disease	ASPA Deficiency
+Disease	Aspartoacylase Deficiency
+Disease	ASP Deficiency
+Disease	Familial Form of Canavan Disease
+Disease	Infantile Canavan Disease
+Disease	Juvenile Canavan Disease
+Disease	Neonatal Canavan Disease
+Disease	Spongy Degeneration Of Central Nervous System
+Disease	Spongy Degeneration of Infancy
+Disease	Spongy Degeneration of the Brain
+Disease	Spongy Degeneration of the Central Nervous System
+Disease	Spongy Degeneration of White Matter In Infancy
+Disease	Spongy Disease of Central Nervous System
+Disease	Spongy Disease of White Matter
+Disease	Sporadic Form of Canavan Disease
+Disease	Type I Canavan Disease
+Disease	Type II Canavan Disease
+Disease	Type III Canavan Disease
+Disease	Canavan disease
+Disease	Carcinoma in Situ
+Disease	Cerebellar Ataxia
+Disease	Cerebellar Ataxias
+Disease	Cerebellar Incoordination
+Disease	Hypermetria
+Disease	Autosomal Recessive Cerebellar Ataxia with Mental Retardation
+Disease	Autosomal Recessive Spastic Ataxia With Leukoencephalopathy
+Disease	Autosomal Recessive Spinocerebellar Ataxia 8
+Disease	Familial Danish dementia
+Disease	Cholesteryl Ester Transfer Protein Deficiency
+Disease	CETP Deficiency
+Disease	Hyperalphalipoproteinemia
+Disease	Chromosomal Instability
+Disease	Chromosomal Stability
+Disease	Chromosome Instability
+Disease	Chromosome Stability
+Disease	Chromosome Aberrations
+Disease	Autosome Abnormalities
+Disease	Autosome Abnormality
+Disease	Chromosomal Aberrations
+Disease	Chromosomal Abnormalities
+Disease	Chromosomal Abnormality
+Disease	Chromosome Abnormalities
+Disease	Chromosome Abnormality
+Disease	Cytogenetic Aberrations
+Disease	Cytogenetic Abnormalities
+Disease	Cytogenetic Abnormality
+Disease	Chromosome Breakage
+Disease	Chromosomal Break
+Disease	Chromosomal Breakage
+Disease	Chromosomal Breaks
+Disease	Chromosome Break
+Disease	Chromosome Breaks
+Disease	Thrombocytopenia 2
+Disease	Chromosome Deletion
+Disease	Partial Monosomy
+Disease	18p deletion syndrome
+Disease	18q syndrome
+Disease	1p36 deletion syndrome
+Disease	22q13 Deletion Syndrome
+Disease	5q deletion syndrome
+Disease	Chromosome 11q13 Deletion Syndrome
+Disease	Chromosome 13q deletion
+Disease	Chromosome 13q deletion syndrome
+Disease	Chromosome 13q monosomy
+Disease	Chromosome 13q syndrome
+Disease	Chromosome 18q Deletion Syndrome
+Disease	Chromosome 18q syndrome
+Disease	Chromosome 3 distal deletion
+Disease	Chromosome 4 Long Arm Deletion
+Disease	Chromosome 4p deletion
+Disease	Deletion 10q
+Disease	Deletion 11p13
+Disease	Deletion 11q partial
+Disease	Deletion 13q
+Disease	Deletion 13q syndrome
+Disease	Deletion 18p syndrome
+Disease	Deletion 1p32
+Disease	Deletion 1q21 q25
+Disease	Deletion 22q13 Syndrome
+Disease	Deletion 3p
+Disease	Deletion 3p25
+Disease	Deletion 3q13
+Disease	Deletion 3q27
+Disease	Deletion 4p
+Disease	Deletion 4q
+Disease	Deletion 8q
+Disease	Deletion Xp22 pter
+Disease	Deletion Xq28
+Disease	Microdeletion 22 q11
+Disease	Monosomy 10q
+Disease	Monosomy 11q partial
+Disease	Monosomy 13q
+Disease	Monosomy 13q syndrome
+Disease	Monosomy 18q syndrome
+Disease	Monosomy 1p32
+Disease	Monosomy 1p36 syndrome
+Disease	Monosomy 1q21 q25
+Disease	Monosomy 22q13
+Disease	Monosomy 3p
+Disease	Monosomy 3p25
+Disease	Monosomy 3q13
+Disease	Monosomy 3q27
+Disease	Monosomy 4p
+Disease	Monosomy 4q
+Disease	Monosomy 7
+Disease	Monosomy 8q
+Disease	Monosomy Xp22 pter
+Disease	Monosomy Xq28
+Disease	Partial deletion of Y
+Disease	Partial deletion of Y chromosome short arm
+Disease	Partial deletion of chromosome Y
+Disease	Partial deletion of short arm of chromosome 9
+Disease	Partial deletion of the long arm of the Y chromosome
+Disease	Partial monosomy of the long arm of chromosome 13
+Disease	Sensorineural Deafness and Male Infertility
+Disease	Terminal deletion of chromosome 10q
+Disease	Y chromosome deletions
+Disease	Y chromosome microdeletions
+Disease	Chronic Disease
+Disease	Chronic Diseases
+Disease	Chronic Illness
+Disease	Cleft Lip
+Disease	Peters Plus Syndrome
+Disease	Cleft Palate
+Disease	Congenital myopathy cleft palate and malignant hyperthermia
+Disease	Hydrocephalus cleft palate joint contractures
+Disease	Hypothyroidism cleft palate
+Disease	Joint contractures with other abnormalities
+Disease	Kniest Syndrome
+Disease	Microcephaly cleft palate autosomal dominant
+Disease	Cognitive Dysfunction
+Disease	Cognitive Decline
+Disease	Cognitive Impairment
+Disease	Cognitive Impairments
+Disease	Mental Deterioration
+Disease	Mild Cognitive Impairment
+Disease	Mild Cognitive Impairments
+Disease	Cohen syndrome
+Disease	COH1
+Disease	Colonic Polyps
+Disease	Colonic Polyp
+Disease	Color Vision Defects
+Disease	Acquired Color Blindness
+Disease	Blue Color Blindness
+Disease	Color Blindness
+Disease	Color Vision Defect
+Disease	Color Vision Deficiency
+Disease	Green Color Blindness
+Disease	Inherited Color Blindness
+Disease	Red Color Blindness
+Disease	Rod monochromacy
+Disease	Rod monochromacy 2
+Disease	Total color blindness
+Disease	Common Variable Immunodeficiency
+Disease	Common Variable Immune Deficiency
+Disease	DEFICIT IN ANTERIOR PITUITARY FUNCTION AND VARIABLE IMMUNODEFICIENCY
+Disease	Complement Factor H Deficiency
+Disease	Factor H Deficiency
+Disease	Congenital Hypothyroidism
+Disease	Choreoathetosis And Congenital Hypothyroidism
+Disease	Congenital chloride diarrhea
+Disease	Connective Tissue Diseases
+Disease	Connective Tissue Disease
+Disease	Generalized connective tissue syndrome
+Disease	Corneal Opacity
+Disease	Corneal Opacities
+Disease	Craniofacial Abnormalities
+Disease	Craniofacial Abnormality
+Disease	CCC dysplasia
+Disease	Craniofrontonasal syndrome
+Disease	Cross syndrome
+Disease	Distinctive craniofacial features with Pterygia and mental retardation
+Disease	Ear Pits
+Disease	Fetal Face Syndrome
+Disease	Frontonasal Malformation
+Disease	Hydrocephalus with associated malformations
+Disease	Median facial cleft syndrome
+Disease	W syndrome
+Disease	Craniofrontonasal dysplasia
+Disease	CFND
+Disease	CRANIOFRONTONASAL DYSPLASIA
+Disease	DDS
+Disease	DMD
+Disease	Denys - Drash syndrome
+Disease	DiGeorge Syndrome
+Disease	Conotruncal Anomaly Face Syndrome
+Disease	DGS
+Disease	DiGeorge Anomaly
+Disease	DiGeorge Sequence
+Disease	Thymic Aplasia Syndrome
+Disease	VCFS
+Disease	Velo Cardio Facial Syndrome
+Disease	Diabetes Insipidus
+Disease	Diabetes Mellitus
+Disease	Pancreatic hypoplasia diabetes heart disease
+Disease	Permanent Neonatal Diabetes Mellitus
+Disease	Diastrophic dysplasia
+Disease	DTD
+Disease	Dihydropyrimidine Dehydrogenase Deficiency
+Disease	Dihydropyrimidine Dehydrogenase Deficiencies
+Disease	DPD Deficiencies
+Disease	DPD Deficiency
+Disease	Hereditary Thymine Uraciluria
+Disease	Disease Progression
+Disease	Disease Susceptibility
+Disease	Duchenne and Becker muscular dystrophy
+Disease	Duchenne muscular dystrophy
+Disease	EDMD
+Disease	Ectopia pupillae
+Disease	Emery - Dreifuss muscular dystrophy
+Disease	Epidermolysis Bullosa
+Disease	Episodic Ataxia
+Disease	Eye Abnormalities
+Disease	Eye Abnormality
+Disease	Anterior segment ocular dysgenesis
+Disease	Autosomal dominant torsion dystonia with onset in infancy
+Disease	Axenfeld Anomaly
+Disease	Axenfeld Syndrome
+Disease	Cat Eye syndrome
+Disease	Chromosome 22 partial tetrasomy
+Disease	Rieger syndrome
+Disease	Rieger syndrome type 2
+Disease	FAP
+Disease	FNDI
+Disease	FRDA
+Disease	Fabry Disease
+Disease	alpha Galactosidase A Deficiency
+Disease	alpha Galactosidase A Deficiency Disease
+Disease	Angiokeratoma Corporis Diffusum
+Disease	Angiokeratoma Diffuse
+Disease	Diffuse Angiokeratoma
+Disease	GLA Deficiency
+Disease	Facial Asymmetry
+Disease	Factor X Deficiency
+Disease	F10 DEFICIENCY
+Disease	Factor 10 Deficiencies
+Disease	Factor 10 Deficiency
+Disease	Factor Ten Deficiencies
+Disease	Factor Ten Deficiency
+Disease	Factor X Deficiencies
+Disease	Familial Mediterranean Fever
+Disease	FMF
+Disease	Familial Mediterranean fever
+Disease	Fragile X Syndrome
+Disease	Fragile X Mental Retardation Syndrome
+Disease	Fragile X Syndromes
+Disease	FRAXA Syndrome
+Disease	FRAXA Syndromes
+Disease	FRAXE MENTAL RETARDATION SYNDROME
+Disease	FRAXE Syndrome
+Disease	FRAXE Syndromes
+Disease	Marker X Syndrome
+Disease	Marker X Syndromes
+Disease	X Linked Mental Retardation and Macroorchidism
+Disease	Fragile X Premature Ovarian Failure
+Disease	Frasier Syndrome
+Disease	Friedreich Ataxia
+Disease	Friedreich Ataxias
+Disease	Friedreich Disease
+Disease	Friedreich Familial Ataxia
+Disease	Friedreich Hereditary Ataxia
+Disease	Friedreich Hereditary Spinal Ataxia
+Disease	Friedreichs Familial Ataxia
+Disease	Friedreichs Hereditary Ataxia
+Disease	Friedreich Spinocerebellar Ataxia
+Disease	Hereditary Spinal Sclerosis
+Disease	Congenital glaucoma and Friedreich ataxia
+Disease	Friedreich Ataxia and Congenital Glaucoma
+Disease	Friedreich ataxia
+Disease	Frontonasal dysplasia
+Disease	FRONTONASAL DYSPLASIA
+Disease	FRONTONASAL DYSPLASIA 1
+Disease	FRONTONASAL DYSPLASIA 2
+Disease	FRONTONASAL DYSPLASIA 3
+Disease	G6PD - deficient
+Disease	G6PD deficiency
+Disease	GLYCEROL KINASE DEFICIENCY
+Disease	GK DEFICIENCY
+Disease	HYPERGLYCEROLEMIA
+Disease	GS
+Disease	Gardner Syndrome
+Disease	Gardner Syndromes
+Disease	Gaucher Disease
+Disease	Acute Neuronopathic Gaucher Disease
+Disease	Chronic Gaucher Disease
+Disease	Gaucher Disease Type 1
+Disease	Gaucher Disease Type 2
+Disease	Gaucher Disease Type 3
+Disease	Gaucher Splenomegaly
+Disease	Gaucher Syndrome
+Disease	GBA Deficiencies
+Disease	GBA Deficiency
+Disease	GD I
+Disease	GD II
+Disease	GD III
+Disease	Glucocerebrosidase Deficiencies
+Disease	Glucocerebrosidase Deficiency
+Disease	Glucocerebrosidase Deficiency Disease
+Disease	Glucocerebrosidase Deficiency Diseases
+Disease	Infantile Gaucher Disease
+Disease	Juvenile Gaucher Disease
+Disease	Neuronopathic Gaucher Disease
+Disease	Non Neuronopathic Gaucher Disease
+Disease	Subacute Neuronopathic Gaucher Disease
+Disease	Type 1 Gaucher Disease
+Disease	Type 2 Gaucher Disease
+Disease	Type 3 Gaucher Disease
+Disease	Pseudo Gaucher disease
+Disease	Genomic Instability
+Disease	Genome Instability
+Disease	Genome Stability
+Disease	Genomic Stability
+Disease	Granulosa Cell Tumor
+Disease	Cancer of Granulosa Cells
+Disease	Granulosa Cell Cancer
+Disease	Granulosa Cell Cancers
+Disease	Granulosa Cells Cancer
+Disease	Granulosa Cells Cancers
+Disease	Granulosa Cell Tumors
+Disease	Adult granulosa cell tumor of the ovary
+Disease	GCT of the ovary
+Disease	HBL
+Disease	HH
+Disease	HMS
+Disease	HNPCC
+Disease	Hearing Loss
+Disease	Hearing Impairment
+Disease	Myopathy With Cataract And Combined Respiratory Chain Deficiency
+Disease	Hematologic Neoplasms
+Disease	Hematological Malignancies
+Disease	Hematological Malignancy
+Disease	Hematological Neoplasm
+Disease	Hematological Neoplasms
+Disease	Hematologic Malignancies
+Disease	Hematologic Malignancy
+Disease	Hematologic Neoplasm
+Disease	Hematopoietic Malignancies
+Disease	Hematopoietic Malignancy
+Disease	Hematopoietic Neoplasm
+Disease	Hematopoietic Neoplasms
+Disease	Hemophilia A
+Disease	Autosomal Hemophilia A
+Disease	Autosomal Hemophilia As
+Disease	Classic Hemophilia
+Disease	Congenital Hemophilia A
+Disease	Congenital Hemophilia As
+Disease	Factor VIII Deficiency
+Disease	Hemophilia
+Disease	Hemophilia As
+Disease	Multiple Coagulation Factor Deficiency I
+Disease	Hemophilia B
+Disease	F9 Deficiencies
+Disease	F9 Deficiency
+Disease	Factor IX Deficiencies
+Disease	Factor IX Deficiency
+Disease	Hepatic Encephalopathy
+Disease	Hereditary Breast and Ovarian Cancer Syndrome
+Disease	Huntington Disease
+Disease	HD
+Disease	Juvenile Huntington Disease
+Disease	Juvenile Onset Huntington Disease
+Disease	Late Onset Huntington Disease
+Disease	Huntington disease
+Disease	IVF
+Disease	Intestinal Polyps
+Disease	Intestinal Polyp
+Disease	Iron Overload
+Disease	Kaposi sarcoma
+Disease	Kniest dysplasia
+Disease	Knobloch syndrome
+Disease	KNOBLOCH SYNDROME 1
+Disease	LGS
+Disease	Langer - Giedion syndrome
+Disease	Lesch - Nyhan
+Disease	Lesch - Nyhan syndrome
+Disease	Li - Fraumeni syndrome
+Disease	Liver Failure
+Disease	Hepatic Failure
+Disease	Lowe syndrome
+Disease	MEF
+Disease	MJD
+Disease	MLD
+Disease	MPS IVA
+Disease	MUSCLE HYPERTROPHY
+Disease	Machado - Joseph disease
+Disease	Macular Degeneration
+Disease	Age Related Macular Degeneration
+Disease	Macular Dystrophies
+Disease	Macular Dystrophy
+Disease	McLeod syndrome
+Disease	Meningococcal Infections
+Disease	Meningococcal Disease
+Disease	Meningococcal Diseases
+Disease	Meningococcal Infection
+Disease	Microsatellite Instability
+Disease	Replication Error Phenotype
+Disease	Replication Error Phenotypes
+Disease	Movement Disorders
+Disease	Movement Disorder
+Disease	Movement Disorder Syndrome
+Disease	Movement Disorder Syndromes
+Disease	Piebald trait neurologic defects
+Disease	Mucopolysaccharidosis VII
+Disease	beta Glucuronidase Deficiency
+Disease	GUSB Deficiencies
+Disease	GUSB Deficiency
+Disease	MPS VII
+Disease	Mucopolysaccharidosis 7
+Disease	Mucopolysaccharidosis Type VII
+Disease	Multiple Endocrine Neoplasia
+Disease	Multiple Endocrine Neoplasia Syndromes
+Disease	Multiple Endocrine Neoplasms
+Disease	Muscle Weakness
+Disease	Muscular Weakness
+Disease	Coenzyme Q Deficiency
+Disease	Muscular Atrophy
+Disease	Muscle Atrophy
+Disease	Dysmorphic facial features and multiple structural abnormalities
+Disease	Mental retardation and muscular atrophy
+Disease	Muscular Dystrophies
+Disease	Muscular Dystrophy
+Disease	Lipid Storage Myopathy
+Disease	Myasthenia Gravis
+Disease	Generalized Myasthenia Gravis
+Disease	Ocular Myasthenia Gravis
+Disease	Myasthenia familial infantile
+Disease	Myotonia Congenita
+Disease	Becker Disease
+Disease	Becker Generalized Myotonia
+Disease	Congenital Myotonia
+Disease	Generalized Myotonia
+Disease	Generalized Myotonia of Becker
+Disease	Generalized Myotonia of Thomsen
+Disease	Generalized Myotonias
+Disease	Myotonia Levior
+Disease	Thomsen Disease
+Disease	Thomsen Generalized Myotonia
+Disease	Thomsens Disease
+Disease	Sodium Channel Myotonia
+Disease	Myotonic Dystrophy
+Disease	Congenital Myotonic Dystrophies
+Disease	Congenital Myotonic Dystrophy
+Disease	DM
+Disease	DM1
+Disease	Dystrophia Myotonica
+Disease	Dystrophia Myotonica 1
+Disease	Dystrophia Myotonica 2
+Disease	Myotonic Dystrophies
+Disease	Myotonic Dystrophy 1
+Disease	Myotonic Dystrophy 2
+Disease	Proximal Myotonic Myopathies
+Disease	Proximal Myotonic Myopathy
+Disease	Myotonic dystrophy
+Disease	N syndrome
+Disease	NDP
+Disease	Neuroectodermal Tumors
+Disease	Neuroectodermal Tumor
+Disease	Neuromuscular Diseases
+Disease	Neuromuscular Disease
+Disease	Nijmegen Breakage Syndrome
+Disease	Ataxia Telangiectasia Variant 1
+Disease	NBS
+Disease	Nijmegen breakage syndrome
+Disease	Norrie disease
+Disease	ND
+Disease	Norrie syndrome
+Disease	Pseudoglioma
+Disease	Pseudoglioma Congenita
+Disease	Oculocerebrorenal Syndrome
+Disease	Lowe Disease
+Disease	Lowe Oculocerebrorenal Syndrome
+Disease	Lowe Syndrome
+Disease	OCRL
+Disease	OCRL1
+Disease	Oculocerebrorenal Dystrophy
+Disease	Oculocerebrorenal Syndrome of Lowe
+Disease	Optic Atrophy
+Disease	Deafness dystonia syndrome
+Disease	Iraqi Jewish optic atrophy plus
+Disease	Optic atrophy plus syndrome
+Disease	PKU
+Disease	PLS
+Disease	PMD
+Disease	PWS
+Disease	Papillon - Lefevre syndrome
+Disease	Pelizaeus - Merzbacher disease
+Disease	Pendred syndrome
+Disease	Autosomal Recessive Sensorineural Hearing Impairment and Goiter
+Disease	Deafness with goiter
+Disease	PDS
+Disease	Peroxisomal Disorders
+Disease	General Peroxisomal Dysfunction
+Disease	Multiple Peroxisomal Dysfunction
+Disease	Neonatal Adrenoleukodystrophy
+Disease	Peroxisomal Disorder
+Disease	Single Peroxisomal Dysfunction
+Disease	Personality Disorders
+Disease	As If Personality
+Disease	Inadequate Personality
+Disease	Personality Disorder
+Disease	Peters anomaly
+Disease	ANTERIOR SEGMENT DYSGENESIS 5
+Disease	Phenylketonuria
+Disease	Prader - Willi syndrome
+Disease	Prolidase Deficiency
+Disease	Prolidase Deficiencies
+Disease	Protein Deficiency
+Disease	Protein Deficiencies
+Disease	Protein S Deficiency
+Disease	Protein S Deficiencies
+Disease	Pyle disease
+Disease	Metaphyseal dysplasia
+Disease	Pyoderma Gangrenosum
+Disease	Familial recurrent arthritis
+Disease	RCC
+Disease	Rare Diseases
+Disease	Orphan Disease
+Disease	Orphan Diseases
+Disease	Rare Disease
+Disease	Refsum Disease
+Disease	Adult Refsum Disease
+Disease	Adult Refsum Diseases
+Disease	Classic Refsum Disease
+Disease	Classic Refsum Diseases
+Disease	Hereditary Motor And Sensory Neuropathy IV
+Disease	Hereditary Motor and Sensory Neuropathy Type IV
+Disease	Hereditary Type IV Motor and Sensory Neuropathy
+Disease	Refsum Syndrome
+Disease	Retinal Degeneration
+Disease	Recessive spastic paraplegia with retinal degeneration
+Disease	Retinal Cone Degeneration
+Disease	Spastic paraplegia and retinal degeneration
+Disease	Retinal Detachment
+Disease	Retinal Pigment Epithelial Detachment
+Disease	Retinal Telangiectasis
+Disease	Coats Disease
+Disease	RETINAL TELANGIECTASIS
+Disease	Retinitis Pigmentosa
+Disease	Rod Cone Dystrophies
+Disease	Rod Cone Dystrophy
+Disease	M Syndrome
+Disease	Nonspecific mental retardation associated with retinitis pigmentosa
+Disease	Retinal Cone Dystrophy
+Disease	Retinitis Pigmentosa 15
+Disease	Retinitis Pigmentosa 50
+Disease	Retinitis pigmentosa syndrome
+Disease	Rheumatic Diseases
+Disease	Rheumatic Disease
+Disease	Riboflavin Deficiency
+Disease	Riboflavin Deficiencies
+Disease	SCA3
+Disease	SLS
+Disease	Scott Syndrome
+Disease	Bleeding Abnormality due to Deficiency of Platelet Binding of Factor X
+Disease	Signs and Symptoms
+Disease	Symptoms and Signs
+Disease	Spinocerebellar Ataxias
+Disease	Cerebellar Degeneration with Slow Eye Movements
+Disease	Dominantly Inherited Spinocerebellar Ataxias
+Disease	SCA1
+Disease	SCA2
+Disease	SCA6
+Disease	Spinocerebellar Ataxia
+Disease	Spinocerebellar Ataxia 1
+Disease	Spinocerebellar Ataxia 2
+Disease	SPINOCEREBELLAR ATAXIA 32
+Disease	SPINOCEREBELLAR ATAXIA 35
+Disease	SPINOCEREBELLAR ATAXIA 36
+Disease	SPINOCEREBELLAR ATAXIA 38
+Disease	Spinocerebellar Ataxia 4
+Disease	SPINOCEREBELLAR ATAXIA 40
+Disease	SPINOCEREBELLAR ATAXIA 41
+Disease	SPINOCEREBELLAR ATAXIA 42
+Disease	SPINOCEREBELLAR ATAXIA 43
+Disease	Spinocerebellar Ataxia 5
+Disease	Spinocerebellar Ataxia 6
+Disease	Spinocerebellar Ataxia 7
+Disease	SPINOCEREBELLAR ATAXIA 9
+Disease	Spinocerebellar Ataxia Type 1
+Disease	Spinocerebellar Ataxia Type 2
+Disease	Spinocerebellar Ataxia Type 4
+Disease	Spinocerebellar Ataxia Type 5
+Disease	Spinocerebellar Ataxia Type 6
+Disease	Spinocerebellar Ataxia Type 7
+Disease	SPINOCEREBELLAR ATAXIA WITH MENTAL RETARDATION AND EPILEPSY
+Disease	Spinocerebellar Ataxia with Slow Eye Movements
+Disease	Spinocerebellar Atrophy
+Disease	Spinocerebellar Atrophy 2
+Disease	Spinocerebellar Atrophy I
+Disease	Spinocerebellar Atrophy II
+Disease	Spinocerebellar Atrophy Is
+Disease	Spinocerebellar Degeneration with Slow Eye Movements
+Disease	Type 1 Spinocerebellar Ataxia
+Disease	Type 2 Spinocerebellar Ataxia
+Disease	Type 4 Spinocerebellar Ataxia
+Disease	Type 5 Spinocerebellar Ataxia
+Disease	Type 6 Spinocerebellar Ataxia
+Disease	Type 7 Spinocerebellar Ataxia
+Disease	Spinocerebellar ataxia type 20
+Disease	Spinocerebellar ataxia type 25
+Disease	Spinocerebellar ataxia type 26
+Disease	TCD
+Disease	TSD
+Disease	Tay - Sachs disease
+Disease	Tooth Loss
+Disease	Tourette Syndrome
+Disease	Tourette Disease
+Disease	Tourette Disorder
+Disease	TOURETTE SYNDROME
+Disease	TS
+Disease	Tuberous Sclerosis
+Disease	Cerebral Sclerosis
+Disease	Tuberous Sclerosis Complex
+Disease	UPD
+Disease	Uniparental Disomy
+Disease	Uniparental Heterodisomy
+Disease	Chromosome 22 trisomy mosaic
+Disease	Maternal uniparental disomy of chromosome 13
+Disease	Mosaic trisomy 10
+Disease	Mosaic trisomy 21
+Disease	Mosaic trisomy of chromosome 5
+Disease	Paternal uniparental disomy 13
+Disease	Paternal uniparental disomy 14
+Disease	Paternal uniparental disomy of chromosome 13
+Disease	Trisomy 15 mosaicism
+Disease	Trisomy 22 mosaic
+Disease	Trisomy 7 mosaicism
+Disease	Trisomy 8 Mosaicism
+Disease	Trisomy 9 mosaic
+Disease	Trisomy 9 mosaicism
+Disease	Trisomy mosaic 22
+Disease	Uniparental disomy of 10
+Disease	Uniparental disomy of 15
+Disease	Uniparental disomy of 16
+Disease	Uniparental disomy of 2
+Disease	Uniparental disomy of 21
+Disease	Uniparental disomy of 22
+Disease	Uniparental disomy of 5
+Disease	Uniparental disomy of 7
+Disease	Uniparental disomy of 8
+Disease	Uniparental disomy of 9
+Disease	Uniparental disomy of chromosome 11
+Disease	Uniparental disomy of chromosome 13
+Disease	Urogenital Abnormalities
+Disease	Genitourinary Abnormalities
+Disease	Genitourinary Abnormality
+Disease	Urogenital Abnormality
+Disease	Congenital Anomalies Of Kidney And Urinary Tract
+Disease	Hand foot genital syndrome
+Disease	Hereditary Renal Aplasia
+Disease	Renal Aplasia
+Disease	Renal tubular dysgenesis
+Disease	VHL
+Disease	VLCAD deficiency
+Disease	VLCAD DEFICIENCY
+Disease	VWS
+Disease	Van der Woude syndrome
+Disease	VAN DER WOUDE SYNDROME 1
+Disease	Venous Thrombosis
+Disease	Deep Venous Thrombosis
+Disease	Ventricular Fibrillation
+Disease	Idiopathic ventricular fibrillation
+Disease	Paroxysmal familial ventricular fibrillation
+Disease	WD
+Disease	WT
+Disease	Waardenburg Syndrome
+Disease	Waardenburg Syndrome Type 1
+Disease	Waardenburg Syndrome Type 3
+Disease	Waardenburg Syndrome with Upper Limb Anomalies
+Disease	Anophthalmia Waardenburg syndrome
+Disease	Waardenburg anophthalmia syndrome
+Disease	Wilms Tumor
+Disease	Bilateral Wilms Tumor
+Disease	Nephroblastoma
+Disease	Wilms Tumor 1
+Disease	WT1
+Disease	Bilateral radial aplasia with Wilms tumor
+Disease	Familial Wilms Tumor 1
+Disease	Wilms tumor 5
+Disease	Wilms tumor
+Disease	Wilson disease
+Disease	Wiskott - Aldrich syndrome
+Disease	Wolfram Syndrome
+Disease	Diabetes Insipidus and Mellitus with Optic Atrophy and Deafness
+Disease	WFS
+Disease	WFS1
+Disease	Wolfram Syndrome 1
+Disease	Wolfram syndrome
+Disease	Wolman Disease
+Disease	Acid Lipase Deficiency
+Disease	Familial Xanthomatosis
+Disease	Acid lipase disease
+Disease	Cholesterol ester hydrolase deficiency
+Disease	X - ALD
+Disease	X - linked Emery - Dreifuss muscular dystrophy
+Disease	X - linked adrenoleukodystrophy
+Disease	X - linked retinoschisis
+Disease	XLRS
+Disease	Zellweger Syndrome
+Disease	Cerebrohepatorenal Syndrome
+Disease	Zellweger Disease
+Disease	Zellweger Like Syndrome
+Disease	Zellweger Spectrum
+Disease	Zellweger Syndrome Spectrum
+Disease	Pseudo Zellweger syndrome leukodystrophy
+Disease	Zellweger syndrome
+Disease	adenomas
+Disease	adrenoleukodystrophy
+Disease	adrenomyeloneuropathy
+Disease	alkaptonuria
+Disease	alveolar rhabdomyosarcoma
+Disease	aniridia
+Disease	ankylosing spondylitis
+Disease	arthritis
+Disease	ataxia - telangiectasia
+Disease	attenuated adenomatous polyposis coli
+Disease	autosomal dominant disorder
+Disease	autosomal recessive disease
+Disease	autosomal recessive disorder
+Disease	breast - ovarian cancer
+Disease	breast / ovarian cancer
+Disease	breast and / or ovarian cancer
+Disease	breast and ovarian cancer
+Disease	breast and ovarian cancers
+Disease	breast cancer
+Disease	breast cancers
+Disease	breast or ovarian cancer
+Disease	cancer
+Disease	cancers
+Disease	cardiomyopathy
+Disease	cataract
+Disease	cataracts
+Disease	cerebral ALD
+Disease	cerebrotendinous xanthomatosis
+Disease	chondrodysplasia
+Disease	choroideremia
+Disease	colorectal adenomas
+Disease	colorectal cancer
+Disease	colorectal tumors
+Disease	deafness
+Disease	deficiency of hepatic phenylalanine hydroxylase
+Disease	enzyme deficiency
+Disease	familial Mediterranean fever
+Disease	fever
+Disease	fragile X
+Disease	fragile X syndrome
+Disease	galactosemia
+Disease	gastric cancer
+Disease	gastric cancers
+Disease	genetic defect
+Disease	glucose - 6 - phosphate dehydrogenase ( G6PD ) deficiency
+Disease	hemochromatosis
+Disease	hemolytic anemia
+Disease	hepatoblastoma
+Disease	hereditary breast and ovarian cancer
+Disease	hereditary breast cancer
+Disease	hereditary hemochromatosis
+Disease	hereditary prostate cancer
+Disease	hereditary retinoblastoma
+Disease	hyperphenylalaninemia
+Disease	hypobetalipoproteinemia
+Disease	hypopigmentation
+Disease	inherited disorder
+Disease	isolated thrombocytopenia
+Disease	leukemia
+Disease	lip pits
+Disease	lipomas
+Disease	lysosomal storage disorder
+Disease	malaria
+Disease	male breast cancer
+Disease	melanoma
+Disease	meningococcal meningitis
+Disease	mental retardation
+Disease	metachromatic leukodystrophy
+Disease	myopathy
+Disease	myotonia
+Disease	neurofibrosarcoma
+Disease	obesity
+Disease	ovarian cancer
+Disease	ovarian cancers
+Disease	periodontitis
+Disease	phenylketonuria
+Disease	piebaldism
+Disease	prostate cancer
+Disease	renal cell carcinoma
+Disease	renal cell carcinomas
+Disease	renal failure
+Disease	retinoblastoma
+Disease	short stature
+Disease	sporadic renal cell carcinoma
+Disease	thrombocytopenia
+Disease	thrombosis
+Disease	tumor
+Disease	tumors
+Disease	tumour
+Disease	tumours
+Disease	vWS
+Disease	van der Woude syndrome
+Disease	von Hippel - Lindau
+Disease	von Willebrand
+Disease	von Willebrand disease
