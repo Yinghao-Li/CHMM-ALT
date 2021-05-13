@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Author: Yinghao Li @ Georgia Tech ECE
+# Author: Yinghao Li @ Georgia Tech
 # All rights reserved
-
-# -------------------------------------
-# This script is used to run txt_gen_train.py
-# -------------------------------------
 
 # Quit if there's any errors
 set -e
