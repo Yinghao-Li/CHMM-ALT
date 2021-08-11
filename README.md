@@ -1,6 +1,8 @@
-# AlT-NER
+# CHMM-ALT
 
 Alternate-training for multi-source weakly supervised Named Entity Recognition
+
+> A new version is under development [here](https://github.com/Yinghao-Li/CHMM-ALT-dev).
 
 ## 1. Dependency
 - python 3.6 [link](https://www.python.org/)
@@ -10,7 +12,7 @@ Alternate-training for multi-source weakly supervised Named Entity Recognition
 - NLTK [link](https://www.nltk.org/)
 
 Note: this project is only tested under the given environment.
-Other library versions may cause unexpected behaviors.
+Other library versions may lead to unexpected behaviors.
 
 ## 2. Dataset Construction
 
