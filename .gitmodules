@@ -1,0 +1,3 @@
+[submodule "seqlbtoolkit"]
+	path = seqlbtoolkit
+	url = https://github.com/Yinghao-Li/seqlbtoolkit
