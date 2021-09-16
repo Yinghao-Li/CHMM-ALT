@@ -388,46 +388,6 @@ class CHMMTrainer:
             self._emiss_mat = checkpoint['emissions']
         return self
 
-    def append_dataset_obs(self, dataset: MultiSrcNERDataset, obs: List[np.ndarray]):
-        # --- update dataset ---
-        ori_obs = dataset.obs
-        assert len(ori_obs) == len(obs)
-
-        new_obs = list()
-        for ori_ob, ob in zip(ori_obs, obs):
-            assert len(ori_ob) == len(ob)
-
-            # make sure bert observation does not accumulate
-            if not self._has_appended_obs:
-                new_ob = torch.cat((ori_ob, torch.tensor(ob).unsqueeze(1)), dim=1)
-            else:
-                ori_ob[:, -1, :] = torch.tensor(ob)
-                new_ob = ori_ob
-            new_obs.append(new_ob)
-
-        dataset.obs = new_obs
-
-        # --- update arguments ---
-        if 'added_bert' not in self._config.sources:
-            self._config.sources += ['added_bert']
-            self._config.src_priors['added_bert'] = {lb: (0.9, 0.9) for lb in self._config.entity_types}
-
-    @staticmethod
-    def update_embs(dataset: MultiSrcNERDataset, embs: List[np.ndarray]):
-        # --- update dataset ---
-        ori_embs = dataset.embs
-        assert len(ori_embs) == len(embs)
-
-        new_embs = list()
-        for ori_emb, emb in zip(ori_embs, embs):
-            assert ori_emb.shape[0] == emb.shape[0] + 1
-            assert ori_emb.shape[1] == emb.shape[1]
-            new_emb = ori_emb.clone()
-            new_emb[1:, :] = torch.from_numpy(emb).to(torch.float)
-            new_embs.append(new_emb)
-
-        dataset.embs = new_embs
-
 
 def initialise_startprob(observations,
                          label_set,

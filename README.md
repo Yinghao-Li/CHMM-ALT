@@ -7,7 +7,7 @@ This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-So
 > To view the previous version of program used for the paper, switch to branch `prev`.
 
 ## 1. Dependency
-Please check `requirement.txt`.
+Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
 The model training program should be compatible with any package versions.
 
