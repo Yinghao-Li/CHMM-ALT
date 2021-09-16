@@ -1,0 +1,38 @@
+{
+  "lf": [
+    "tag-CoreDictionary",
+    "tag-OtherTerms",
+    "tag-ReplaceThe",
+    "tag-iStuff",
+    "tag-Feelings",
+    "tag-ProblemWithThe",
+    "tag-External",
+    "tag-StopWords",
+    "tag-Punctuation",
+    "tag-Pronouns",
+    "tag-NotFeatures",
+    "tag-Adv",
+    "link-CompoundPhrase",
+    "link-ElmoLinkingRule",
+    "link-ExtractedPhrase",
+    "link-ConsecutiveCapitals"
+  ],
+  "entity_types": [
+    "TERM"
+  ],
+  "train_size": 2436,
+  "valid_size": 609,
+  "test_size ": 800,
+  "max_length": 83,
+  "num_lf": 16,
+  "num_labels": 3,
+  "lf_rec": [
+    "tag-CoreDictionary",
+    "tag-OtherTerms",
+    "tag-iStuff",
+    "tag-Feelings",
+    "link-ExtractedPhrase",
+    "link-ConsecutiveCapitals"
+  ],
+  "num_lf_rec": 6
+}

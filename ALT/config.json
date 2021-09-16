@@ -1,0 +1,18 @@
+{
+    "train_file": "../../data/Laptop/Laptop-linked-train.pt",
+    "valid_file": "../../data/Laptop/Laptop-linked-dev.pt",
+    "test_file": "../../data/Laptop/Laptop-linked-test.pt",
+    "output_dir": "./output",
+    "bert_model_name_or_path": "distilbert-base-uncased",
+    "num_lm_nn_pretrain_epochs": 2,
+    "num_lm_train_epochs": 5,
+    "num_em_train_epochs": 3,
+    "batch_size": 16,
+    "em_batch_size": 2,
+    "seed": 1,
+    "nn_lr": 0.0001,
+    "obs_normalization": true,
+    "debug_mode": true,
+    "pass_soft_labels": false,
+    "max_length": 128
+}

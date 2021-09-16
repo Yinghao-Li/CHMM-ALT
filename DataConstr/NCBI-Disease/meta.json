@@ -1,0 +1,39 @@
+{
+  "lf": [
+    "tag-CoreDictionaryUncased",
+    "tag-CoreDictionaryExact",
+    "tag-CancerLike",
+    "tag-CommonSuffixes",
+    "tag-Deficiency",
+    "tag-Disorder",
+    "tag-Lesion",
+    "tag-Syndrome",
+    "tag-BodyTerms",
+    "tag-OtherPOS",
+    "tag-StopWords",
+    "tag-Punctuation",
+    "link-PossessivePhrase",
+    "link-HyphenatedPhrase",
+    "link-ElmoLinkingRule",
+    "link-CommonBigram",
+    "link-ExtractedPhrase"
+  ],
+  "entity_types": [
+    "Disease"
+  ],
+  "train_size": 592,
+  "valid_size": 99,
+  "test_size ": 99,
+  "max_length": 503,
+  "num_lf": 17,
+  "num_labels": 3,
+  "lf_rec": [
+    "tag-CoreDictionaryUncased",
+    "tag-CoreDictionaryExact",
+    "tag-BodyTerms",
+    "link-HyphenatedPhrase",
+    "link-CommonBigram",
+    "link-ExtractedPhrase"
+  ],
+  "num_lf_rec": 6
+}

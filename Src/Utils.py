@@ -1,11 +1,11 @@
-import torch
 import random
-import json
 import numpy as np
+
+import torch
 import torch.nn as nn
+
 from scipy.special import softmax
-from typing import List, Dict
-from Src.Constants import OntoNotes_BIO
+from typing import List, Dict, Union
 from seqeval.metrics import accuracy_score, f1_score, precision_score, recall_score
 from transformers import EvalPrediction
 
@@ -27,13 +27,40 @@ def one_hot(x, n_class=None):
     return one_hot_vec
 
 
-def one_hot_to_string(x):
+def probs_to_ids(probs: Union[torch.Tensor, np.ndarray]):
     """
-    obs : Tensor of shape (lengths, |obs_set|)
-    S : list of characters (alphabet, obs_set or Sy)
-    """
+    Convert label probability labels to index
 
-    return [c for c in x.max(dim=1)[1]]
+    Parameters
+    ----------
+    probs: label probabilities
+
+    Returns
+    -------
+    label indices (shape = one_hot_lbs.shape[:-1])
+    """
+    if isinstance(probs, torch.Tensor):
+        probs = probs.detach().cpu().numpy()
+    lb_ids = probs.argmax(axis=-1)
+    return lb_ids
+
+
+def probs_to_lbs(probs: Union[torch.Tensor, np.ndarray], label_types: List[str]):
+    """
+    Convert label probability labels to index
+
+    Parameters
+    ----------
+    probs: label probabilities
+    label_types: label types, size = probs.shape[-1]
+
+    Returns
+    -------
+    labels (shape = one_hot_lbs.shape[:-1])
+    """
+    np_map = np.vectorize(lambda lb: label_types[lb])
+    lb_ids = probs_to_ids(probs)
+    return np_map(lb_ids)
 
 
 def first_nonzero_idx(x, dim=-1):
@@ -120,42 +147,11 @@ def construct_length_mask(seq_lengths):
     return mask
 
 
-def load_labels(file_name):
-    with open(file_name, 'r') as f:
-        labels = json.load(f)
-    return labels
-
-
-def load_conll_2003_data(file_name):
-    with open(file_name, 'r') as f:
-        lines = f.readlines()
-
-    all_sentence = list()
-    sentence = list()
-    all_labels = list()
-    labels = list()
-    for line in lines:
-        try:
-            token, _, _, ner_label = line.strip().split()
-            sentence.append(token)
-            labels.append(ner_label)
-        except ValueError:
-            all_sentence.append(sentence)
-            all_labels.append(labels)
-            sentence = list()
-            labels = list()
-
-    for sentence, labels in zip(all_sentence, all_labels):
-        assert len(sentence) == len(labels)
-
-    return all_sentence, all_labels
-
-
-def check_outputs(predictions):
+def check_outputs(predictions, label_types):
     """Checks whether the output is consistent"""
     prev_bio_label = "O"
     for i in range(len(predictions)):
-        bio_label = OntoNotes_BIO[predictions[i]]
+        bio_label = label_types[predictions[i]]
         if prev_bio_label[0] == "O" and bio_label[0] == "I":
             print("inconsistent start of NER at pos %i:" % i, bio_label, "after", prev_bio_label)
         elif prev_bio_label[0] in {"B", "I"}:
@@ -334,3 +330,8 @@ def soft_frequency(logits, power=2, probs=False):
     p[p != p] = 0
 
     return p
+
+
+def entity_to_bio_labels(entities: List[str]):
+    bio_labels = ["O"] + ["%s-%s" % (bi, label) for label in entities for bi in "BI"]
+    return bio_labels
