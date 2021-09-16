@@ -1,10 +1,18 @@
 # CHMM-ALT
 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple)](https://www.python.org/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/JieyuZ2/wrench/commits/main)
+![GitHub stars](https://img.shields.io/github/stars/Yinghao-Li/CHMM-ALT.svg?color=green)
+![GitHub forks](https://img.shields.io/github/forks/Yinghao-Li/CHMM-ALT?color=9cf)
+
+
 Alternate-training of Conditional hidden Markov model and BERT-NER.
 
 This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-Source Weakly Supervised Named Entity Recognition](https://arxiv.org/abs/2105.12848).
 
 > To view the previous version of program used for the paper, switch to branch `prev`.
+
+Conditional hidden Markov model (CHMM) is also included in the [Wrench project 🔧](https://github.com/JieyuZ2/wrench)
 
 ## 1. Dependency
 Please check `requirement.txt` for the package dependency requirement.
