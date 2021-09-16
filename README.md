@@ -1,19 +1,16 @@
 # CHMM-ALT
 
+Alternate-training of Conditional hidden Markov model and BERT-NER.
 
-Alternate-training for multi-source weakly supervised Named Entity Recognition
+This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-Source Weakly Supervised Named Entity Recognition](https://arxiv.org/abs/2105.12848).
 
-> To view the previous version, switch to branch `prev`.
+> To view the previous version of program used for the paper, switch to branch `prev`.
 
 ## 1. Dependency
-- python 3.6 [link](https://www.python.org/)
-- pytorch 1.6.0 [link](https://pytorch.org/)
-- transformers 3.4.0 [link](https://github.com/huggingface/transformers)
-- pytokenizations [link](https://github.com/tamuhey/tokenizations)
-- NLTK [link](https://www.nltk.org/)
+Please check `requirement.txt`.
+The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
+The model training program should be compatible with any package versions.
 
-Note: this project is only tested under the given environment.
-Other library versions may lead to unexpected behaviors.
 
 ## 2. Dataset Construction
 
