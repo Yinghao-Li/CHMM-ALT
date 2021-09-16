@@ -1,5 +1,7 @@
 # CHMM-ALT
 
+To view the previous version, switch to branch `prev`.
+
 Alternate-training for multi-source weakly supervised Named Entity Recognition
 
 > A new version is under development [here](https://github.com/Yinghao-Li/CHMM-ALT-dev).
