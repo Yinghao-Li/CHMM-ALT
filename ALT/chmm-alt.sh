@@ -11,9 +11,9 @@
 set -e
 
 BERT_MODEL="bert-base-uncased"
-TRAIN_FILE="../../data/Laptop/Laptop-linked-train.pt"
-VALID_FILE="../../data/Laptop/Laptop-linked-dev.pt"
-TEST_FILE="../../data/Laptop/Laptop-linked-test.pt"
+TRAIN_FILE="../DataConstr/LaptopReview/train.json"
+VALID_FILE="../DataConstr/LaptopReview/valid.json"
+TEST_FILE="../DataConstr/LaptopReview/test.json"
 OUTPUT_DIR="./output"
 MAX_SEQ_LENGTH=128
 
