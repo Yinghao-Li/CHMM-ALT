@@ -19,6 +19,10 @@ Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
 The model training program should be compatible with any package versions.
 
+**Note**: This repo contains submodules.
+Cloning this repo does not automatically clone any files in the submodule folder.
+To get those files, use `git submodule update --inint` ([ref](https://git-scm.com/book/en/v2/Git-Tools-Submodules)). 
+
 
 ## 2. Dataset Construction
 
