@@ -6,7 +6,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/Yinghao-Li/CHMM-ALT?color=9cf)
 
 
-Alternate-training of Conditional hidden Markov model and BERT-NER.
+**Al**ternate-**t**raining for **C**onditional **h**idden **M**arkov **m**odel and BERT-NER.
 
 This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-Source Weakly Supervised Named Entity Recognition](https://arxiv.org/abs/2105.12848).
 
