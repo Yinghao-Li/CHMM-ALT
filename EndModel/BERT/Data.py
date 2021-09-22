@@ -15,7 +15,7 @@ from transformers import (
 )
 
 from seqlbtoolkit.Text import break_overlength_bert_text
-from Src.IO import load_data_from_json, load_data_from_pt
+from Utils.IO import load_data_from_json, load_data_from_pt
 from EndModel.BERT.Args import BertConfig
 
 logger = logging.getLogger(__name__)

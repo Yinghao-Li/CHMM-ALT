@@ -75,34 +75,36 @@ def chmm_train(args: AltArguments):
 
     if args.train_file:
         logger.info("Start training CHMM.")
-        training_results = chmm_trainer.train()
+        valid_results = chmm_trainer.train()
     else:
         chmm_trainer.load(os.path.join(args.output_dir, 'chmm.bin'), load_optimizer_and_scheduler=True)
-        training_results = None
+        valid_results = None
 
     if args.test_file:
         logger.info("Start testing CHMM.")
 
-        test_results = chmm_trainer.test()
+        test_metrics = chmm_trainer.test()
 
         logger.info("Test results:")
-        for k, v in test_results.items():
+        for k, v in test_metrics.items():
             logger.info(f"\t{k}: {v:.4f}")
     else:
-        test_results = None
+        test_metrics = None
 
     result_file = os.path.join(args.output_dir, 'chmm-results-p1.txt')
     logger.info(f"Writing results to {result_file}")
     with open(result_file, 'w') as f:
-        if training_results is not None:
-            for i, results in enumerate(training_results):
+        if valid_results is not None:
+            for i in range(len(valid_results)):
                 f.write(f"[Epoch {i + 1}]\n")
-                for k, v in results.items():
-                    f.write(f"\t{k}: {v:.4f}\n")
-        if test_results is not None:
+                for k, v in valid_results.items():
+                    f.write(f"  {k}: {v:.4f}\n")
+                f.write('\n')
+        if test_metrics is not None:
             f.write(f"[Test]\n")
-            for k, v in test_results.items():
-                f.write(f"\t{k}: {v:.4f}\n")
+            for k, v in test_metrics.items():
+                f.write(f"  {k}: {v:.4f}\n")
+            f.write('\n')
 
     chmm_pred_lbs_train, chmm_pred_probs_train = chmm_trainer.predict(chmm_training_dataset)
     # make sure the predicted labels are valid spans (do not start with I-)
@@ -147,29 +149,31 @@ def chmm_train(args: AltArguments):
 
     if args.train_file:
         logger.info("Start training Bert...")
-        training_results = bert_trainer.train()
+        valid_results = bert_trainer.train()
     else:
         bert_trainer.load(args.output_dir, load_optimizer_and_scheduler=True)
-        training_results = None
+        valid_results = None
 
     if args.test_file:
         logger.info("Start testing Bert...")
-        test_results = bert_trainer.test()
+        test_metrics = bert_trainer.test()
     else:
-        test_results = None
+        test_metrics = None
 
     result_file = os.path.join(args.output_dir, 'bert-results-p1.txt')
     logger.info(f"Writing results to {result_file}")
     with open(result_file, 'w') as f:
-        if training_results is not None:
-            for i, results in enumerate(training_results):
+        if valid_results is not None:
+            for i in range(len(valid_results)):
                 f.write(f"[Epoch {i + 1}]\n")
-                for k, v in results.items():
-                    f.write(f"\t{k}: {v:.4f}\n")
-        if test_results is not None:
+                for k, v in valid_results.items():
+                    f.write(f"  {k}: {v:.4f}\n")
+                f.write('\n')
+        if test_metrics is not None:
             f.write(f"[Test]\n")
-            for k, v in test_results.items():
-                f.write(f"\t{k}: {v:.4f}\n")
+            for k, v in test_metrics.items():
+                f.write(f"  {k}: {v:.4f}\n")
+            f.write('\n')
 
     logger.info("Collecting garbage.")
     gc.collect()
@@ -216,30 +220,32 @@ def chmm_train(args: AltArguments):
 
         if args.train_file:
             logger.info("Start training CHMM.")
-            training_results = chmm_trainer.train()
+            valid_results = chmm_trainer.train()
         else:
             chmm_trainer.load(os.path.join(args.output_dir, 'chmm.bin'), load_optimizer_and_scheduler=True)
-            training_results = None
+            valid_results = None
 
         if args.test_file:
             logger.info("Start testing CHMM.")
-            test_results = chmm_trainer.test()
+            test_metrics = chmm_trainer.test()
 
         else:
-            test_results = None
+            test_metrics = None
 
         result_file = os.path.join(args.output_dir, f'chmm-results-p2.{loop_i+1}.txt')
         logger.info(f"Writing results to {result_file}")
         with open(result_file, 'w') as f:
-            if training_results is not None:
-                for i, results in enumerate(training_results):
+            if valid_results is not None:
+                for i in range(len(valid_results)):
                     f.write(f"[Epoch {i + 1}]\n")
-                    for k, v in results.items():
-                        f.write(f"\t{k}: {v:.4f}\n")
-            if test_results is not None:
+                    for k, v in valid_results.items():
+                        f.write(f"  {k}: {v:.4f}\n")
+                    f.write('\n')
+            if test_metrics is not None:
                 f.write(f"[Test]\n")
-                for k, v in test_results.items():
-                    f.write(f"\t{k}: {v:.4f}\n")
+                for k, v in test_metrics.items():
+                    f.write(f"  {k}: {v:.4f}\n")
+                f.write('\n')
 
         chmm_pred_lbs_train, chmm_pred_probs_train = chmm_trainer.predict(chmm_training_dataset)
         # make sure the predicted labels are valid spans (do not start with I-)
@@ -272,34 +278,36 @@ def chmm_train(args: AltArguments):
 
         if args.train_file:
             logger.info("Start training Bert...")
-            training_results = bert_trainer.train()
+            valid_results = bert_trainer.train()
         else:
             bert_trainer.load(args.output_dir, load_optimizer_and_scheduler=True)
-            training_results = None
+            valid_results = None
 
         if args.test_file:
             logger.info("Start testing Bert...")
 
-            test_results = bert_trainer.test()
+            test_metrics = bert_trainer.test()
 
             logger.info("Test results:")
-            for k, v in test_results.items():
+            for k, v in test_metrics.items():
                 logger.info(f"\t{k}: {v:.4f}")
         else:
-            test_results = None
+            test_metrics = None
 
         result_file = os.path.join(args.output_dir, f'bert-results-p2.{loop_i+1}.txt')
         logger.info(f"Writing results to {result_file}")
         with open(result_file, 'w') as f:
-            if training_results is not None:
-                for i, results in enumerate(training_results):
+            if valid_results is not None:
+                for i in range(len(valid_results)):
                     f.write(f"[Epoch {i + 1}]\n")
-                    for k, v in results.items():
-                        f.write(f"\t{k}: {v:.4f}\n")
-            if test_results is not None:
+                    for k, v in valid_results.items():
+                        f.write(f"  {k}: {v:.4f}\n")
+                    f.write('\n')
+            if test_metrics is not None:
                 f.write(f"[Test]\n")
-                for k, v in test_results.items():
-                    f.write(f"\t{k}: {v:.4f}\n")
+                for k, v in test_metrics.items():
+                    f.write(f"  {k}: {v:.4f}\n")
+                f.write('\n')
 
         logger.info("Collecting garbage.")
         gc.collect()

@@ -4,11 +4,6 @@ sys.path.append('../..')
 import os
 import logging
 import numpy as np
-
-from collections import OrderedDict
-from seqeval import metrics
-from seqeval.scheme import IOB2
-from seqlbtoolkit.Data import probs_to_lbs, ids_to_lbs
 from tqdm.auto import tqdm
 from typing import Optional
 
@@ -28,8 +23,10 @@ from transformers import (
 from transformers.trainer_pt_utils import get_parameter_names
 from transformers.modeling_outputs import TokenClassifierOutput
 
-from EndModel.BERT.Args import BertConfig
-from EndModel.BERT.Data import BertNERDataset
+from seqlbtoolkit.Data import probs_to_lbs, ids_to_lbs
+from seqlbtoolkit.Eval import Metric, get_ner_metrics
+from .Args import BertConfig
+from .Data import BertNERDataset
 
 logger = logging.getLogger(__name__)
 
@@ -232,11 +229,11 @@ class BertTrainer:
             )
         return self
 
-    def train(self):
+    def train(self) -> Metric:
         training_dataloader = self.get_dataloader(self._training_dataset, shuffle=True)
         self._model.to(self._config.device)
 
-        valid_result_list = list()
+        valid_results = Metric()
         best_f1 = 0
         tolerance_epoch = 0
 
@@ -249,23 +246,23 @@ class BertTrainer:
             train_loss = self.training_step(training_dataloader, self._optimizer, self._lr_scheduler)
             logger.info("Training loss: %.4f" % train_loss)
 
-            valid_results = self.evaluate(self._valid_dataset)
+            valid_metrics = self.evaluate(self._valid_dataset)
 
             logger.info("Validation results:")
-            for k, v in valid_results.items():
+            for k, v in valid_metrics.items():
                 logger.info(f"\t{k}: {v:.4f}")
 
             # ----- save model -----
-            if valid_results['f1'] >= best_f1:
+            if valid_metrics['f1'] >= best_f1:
                 self.save()
                 logger.info("Checkpoint Saved!\n")
-                best_f1 = valid_results['f1']
+                best_f1 = valid_metrics['f1']
                 tolerance_epoch = 0
             else:
                 tolerance_epoch += 1
 
             # ----- log history -----
-            valid_result_list.append(valid_results)
+            valid_results.append(valid_metrics)
             if tolerance_epoch > self._config.num_em_valid_tolerance:
                 logger.info("Training stopped because of exceeding tolerance")
                 break
@@ -273,7 +270,7 @@ class BertTrainer:
         # retrieve the best state dict
         self.load()
 
-        return valid_result_list
+        return valid_results
 
     def training_step(self, data_loader, optimizer, lr_scheduler):
         train_loss = 0
@@ -335,7 +332,7 @@ class BertTrainer:
             raise TypeError('Unknown label type!')
         return loss
 
-    def evaluate(self, dataset: BertNERDataset):
+    def evaluate(self, dataset: BertNERDataset) -> Metric:
         data_loader = self.get_dataloader(dataset)
         self._model.to(self._config.device)
         self._model.eval()
@@ -365,10 +362,7 @@ class BertTrainer:
 
         true_lbs = [ids_to_lbs(lb[mask], label_types=self._config.bio_label_types).tolist()
                     for mask, lb in zip(dataset.token_masks, dataset.encoded_lbs)]
-        metric_values = OrderedDict()
-        metric_values['precision'] = metrics.precision_score(true_lbs, pred_lbs, mode='strict', scheme=IOB2)
-        metric_values['recall'] = metrics.recall_score(true_lbs, pred_lbs, mode='strict', scheme=IOB2)
-        metric_values['f1'] = metrics.f1_score(true_lbs, pred_lbs, mode='strict', scheme=IOB2)
+        metric_values = get_ner_metrics(true_lbs, pred_lbs)
 
         return metric_values
 
@@ -417,10 +411,10 @@ class BertTrainer:
 
         return lb_list, prob_list
 
-    def test(self):
+    def test(self) -> Metric:
         self._model.to(self._config.device)
-        test_results = self.evaluate(self._test_dataset)
-        return test_results
+        test_metrics = self.evaluate(self._test_dataset)
+        return test_metrics
 
     def get_dataloader(self, dataset: BertNERDataset, shuffle: Optional[bool] = False):
         if dataset:

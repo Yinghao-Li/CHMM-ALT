@@ -45,5 +45,5 @@ CUDA_VISIBLE_DEVICES=$1 python chmm-alt.py \
     --num_phase2_loop $NUM_PHASE2_LOOP \
     --nn_lr $NN_LR \
     --seed $SEED \
-    --obs_normalization
+    --obs_normalization \
     --pass_soft_labels
