@@ -5,18 +5,16 @@ import os
 import logging
 import numpy as np
 from tqdm.auto import tqdm
-from typing import List, Optional
-from seqeval import metrics
-from seqeval.scheme import IOB2
-from collections import OrderedDict
+from typing import Optional
 
 import torch
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
 
-from LabelModel.CHMM.Args import CHMMConfig
-from LabelModel.CHMM.Data import MultiSrcNERDataset
-from LabelModel.CHMM.Model import CHMM
+from seqlbtoolkit.Eval import Metric, get_ner_metrics
+from .Args import CHMMConfig
+from .Data import MultiSrcNERDataset
+from .Model import CHMM
 
 logger = logging.getLogger(__name__)
 
@@ -45,8 +43,6 @@ class CHMMTrainer:
         self._state_prior = None
         self._trans_mat = None
         self._emiss_mat = None
-
-        self._has_appended_obs = False  # reserved for alternate training
 
     @property
     def config(self):
@@ -123,7 +119,6 @@ class CHMMTrainer:
             optimizer.zero_grad()
             nn_trans, nn_emiss = self._model._nn_module(embs=emb_batch)
             batch_size, max_seq_len, n_hidden, _ = nn_trans.size()
-            n_obs = nn_emiss.size(-1)
 
             loss_mask = torch.zeros([batch_size, max_seq_len], device=self._config.device)
             for n in range(batch_size):
@@ -132,16 +127,20 @@ class CHMMTrainer:
             trans_pred = trans_mask * nn_trans
             trans_true = trans_mask * trans_.view(1, 1, n_hidden, n_hidden).repeat(batch_size, max_seq_len, 1, 1)
 
-            emiss_mask = loss_mask.view(batch_size, max_seq_len, 1, 1, 1)
-            emiss_pred = emiss_mask * nn_emiss
-            emiss_true = emiss_mask * emiss_.view(
-                1, 1, self._config.n_src, n_hidden, n_obs
-            ).repeat(batch_size, max_seq_len, 1, 1, 1)
+            emiss_pred = emiss_true = 0
+            if nn_emiss is not None:
+                n_obs = nn_emiss.size(-1)
+                emiss_mask = loss_mask.view(batch_size, max_seq_len, 1, 1, 1)
+                emiss_pred = emiss_mask * nn_emiss
+                emiss_true = emiss_mask * emiss_.view(
+                    1, 1, self._config.n_src, n_hidden, n_obs
+                ).repeat(batch_size, max_seq_len, 1, 1, 1)
+
             if trans_ is not None:
                 l1 = F.mse_loss(trans_pred, trans_true)
             else:
                 l1 = 0
-            if emiss_ is not None:
+            if emiss_ is not None and nn_emiss is not None:
                 l2 = F.mse_loss(emiss_pred, emiss_true)
             else:
                 l2 = 0
@@ -182,12 +181,13 @@ class CHMMTrainer:
 
         return train_loss
 
-    def train(self):
+    def train(self) -> Metric:
         training_dataloader = self.get_dataloader(self._training_dataset, shuffle=True)
 
         # ----- pre-train neural module -----
         if self._config.num_lm_nn_pretrain_epochs > 0:
-            logger.info(" ----- \nPre-training neural module...")
+            logger.info(" ----- ")
+            logger.info("Pre-training neural module...")
             for epoch_i in range(self._config.num_lm_nn_pretrain_epochs):
                 train_loss = self.pretrain_step(
                     training_dataloader, self._pretrain_optimizer, self._trans_mat, self._emiss_mat
@@ -195,35 +195,36 @@ class CHMMTrainer:
                 logger.info(f"Epoch: {epoch_i}, Loss: {train_loss}")
             logger.info("Neural module pretrained!")
 
-        valid_result_list = list()
+        valid_results = Metric()
         best_f1 = 0
         tolerance_epoch = 0
 
         # ----- start training process -----
-        logger.info(" ----- \nStart training CHMM...")
+        logger.info(" ----- ")
+        logger.info("Training CHMM...")
         for epoch_i in range(self._config.num_lm_train_epochs):
             logger.info("------")
             logger.info(f"Epoch {epoch_i + 1} of {self._config.num_lm_train_epochs}")
 
             train_loss = self.training_step(training_dataloader, self._optimizer)
-            valid_results = self.evaluate(self._valid_dataset)
+            valid_metrics = self.evaluate(self._valid_dataset)
 
             logger.info("Training loss: %.4f" % train_loss)
             logger.info("Validation results:")
-            for k, v in valid_results.items():
+            for k, v in valid_metrics.items():
                 logger.info(f"\t{k}: {v:.4f}")
 
             # ----- save model -----
-            if valid_results['f1'] >= best_f1:
+            if valid_metrics['f1'] >= best_f1:
                 self.save()
                 logger.info("Checkpoint Saved!\n")
-                best_f1 = valid_results['f1']
+                best_f1 = valid_metrics['f1']
                 tolerance_epoch = 0
             else:
                 tolerance_epoch += 1
 
             # ----- log history -----
-            valid_result_list.append(valid_results)
+            valid_results.append(valid_metrics)
             if tolerance_epoch > self._config.num_lm_valid_tolerance:
                 logger.info("Training stopped because of exceeding tolerance")
                 break
@@ -231,18 +232,18 @@ class CHMMTrainer:
         # retrieve the best state dict
         self.load()
 
-        return valid_result_list
+        return valid_results
 
-    def test(self):
+    def test(self) -> Metric:
         self._model.to(self._config.device)
-        test_results = self.evaluate(self._test_dataset)
+        test_metrics = self.evaluate(self._test_dataset)
 
         logger.info("Test results:")
-        for k, v in test_results.items():
+        for k, v in test_metrics.items():
             logger.info(f"\t{k}: {v:.4f}")
-        return test_results
+        return test_metrics
 
-    def evaluate(self, dataset: MultiSrcNERDataset):
+    def evaluate(self, dataset: MultiSrcNERDataset) -> Metric:
 
         data_loader = self.get_dataloader(dataset)
         self._model.eval()
@@ -265,10 +266,7 @@ class CHMMTrainer:
                 pred_lbs += pred_lb_batch
 
         true_lbs = dataset.lbs
-        metric_values = OrderedDict()
-        metric_values['precision'] = metrics.precision_score(true_lbs, pred_lbs, mode='strict', scheme=IOB2)
-        metric_values['recall'] = metrics.recall_score(true_lbs, pred_lbs, mode='strict', scheme=IOB2)
-        metric_values['f1'] = metrics.f1_score(true_lbs, pred_lbs, mode='strict', scheme=IOB2)
+        metric_values = get_ner_metrics(true_lbs, pred_lbs)
 
         return metric_values
 

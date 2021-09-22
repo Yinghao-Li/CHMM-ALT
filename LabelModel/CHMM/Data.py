@@ -6,7 +6,7 @@ import copy
 import logging
 import numpy as np
 
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Any
 
 import torch
 from torch.utils.data import DataLoader
@@ -18,9 +18,8 @@ from tqdm import tqdm
 
 from seqlbtoolkit.Data import one_hot
 
-from ALT.Args import AltConfig
-from LabelModel.CHMM.Args import CHMMConfig
-from Src.IO import load_data_from_json, load_data_from_pt
+from .Args import CHMMConfig
+from Utils.IO import load_data_from_json, load_data_from_pt
 
 logger = logging.getLogger(__name__)
 
@@ -106,6 +105,9 @@ class MultiSrcNERDataset(torch.utils.data.Dataset):
         if config:
             bert_model = config.bert_model_name_or_path
             device = config.device
+        else:
+            bert_model = 'bert-base-uncased'
+            device = torch.device('cpu')
 
         file_dir = os.path.normpath(file_dir)
         logger.info(f'Loading data from {file_dir}')
@@ -194,7 +196,7 @@ class MultiSrcNERDataset(torch.utils.data.Dataset):
     def update_obs(self,
                    obs: List[List[Union[int, str]]],
                    src_name: str,
-                   config: Union[CHMMConfig, AltConfig]):
+                   config: Union[CHMMConfig, Any]):
         """
         update weak labels (chmm observations)
 

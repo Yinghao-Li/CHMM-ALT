@@ -67,29 +67,31 @@ def chmm_train(args: CHMMArguments):
 
     if args.train_file:
         logger.info("Start training CHMM.")
-        training_results = chmm_trainer.train()
+        valid_results = chmm_trainer.train()
     else:
         chmm_trainer.load(os.path.join(args.output_dir, 'chmm.bin'), load_optimizer_and_scheduler=True)
-        training_results = None
+        valid_results = None
 
     if args.test_file:
         logger.info("Start testing CHMM.")
-        test_results = chmm_trainer.test()
+        test_metrics = chmm_trainer.test()
     else:
-        test_results = None
+        test_metrics = None
 
-    result_file = os.path.join(args.output_dir, 'running-results.txt')
+    result_file = os.path.join(args.output_dir, 'chmm-results.txt')
     logger.info(f"Writing results to {result_file}")
     with open(result_file, 'w') as f:
-        if training_results is not None:
-            for i, results in enumerate(training_results):
+        if valid_results is not None:
+            for i in range(len(valid_results)):
                 f.write(f"[Epoch {i + 1}]\n")
-                for k, v in results.items():
-                    f.write(f"\t{k}: {v:.4f}")
-        if test_results is not None:
+                for k, v in valid_results.items(i):
+                    f.write(f"  {k}: {v:.4f}")
+                f.write("\n")
+        if test_metrics is not None:
             f.write(f"[Test]\n")
-            for k, v in test_results.items():
-                f.write(f"\t{k}: {v:.4f}")
+            for k, v in test_metrics.items():
+                f.write(f"  {k}: {v:.4f}")
+            f.write("\n")
 
     logger.info("Collecting garbage.")
     gc.collect()

@@ -10,7 +10,7 @@ import torch.nn as nn
 
 from seqlbtoolkit.Data import label_to_span
 
-from Src.Utils import log_matmul, log_maxmul, validate_prob, logsumexp
+from Utils.Math import log_matmul, log_maxmul, validate_prob, logsumexp
 from LabelModel.CHMM.Args import CHMMConfig
 
 logger = logging.getLogger(__name__)
@@ -18,19 +18,21 @@ logger = logging.getLogger(__name__)
 
 class NeuralModule(nn.Module):
     def __init__(self,
-                 d_emb,
-                 d_hidden,
-                 n_src,
-                 d_obs):
+                 config: CHMMConfig):
         super(NeuralModule, self).__init__()
 
-        self._d_hidden = d_hidden
-        self._n_src = n_src
-        self._d_obs = d_obs
-        self._neural_transition = nn.Linear(d_emb, self._d_hidden * self._d_hidden)
-        self._neural_emissions = nn.ModuleList([
-            nn.Linear(d_emb, self._d_hidden * self._d_obs) for _ in range(self._n_src)
-        ])
+        self._d_emb = config.d_emb  # embedding dimension
+        self._d_hidden = config.d_hidden
+        self._n_src = config.n_src
+        self._d_obs = config.d_obs
+        self._use_neural_emiss = not config.no_neural_emiss
+        self._neural_transition = nn.Linear(self._d_emb, self._d_hidden * self._d_hidden)
+        if self._use_neural_emiss:
+            self._neural_emissions = nn.ModuleList([
+                nn.Linear(self._d_emb, self._d_hidden * self._d_obs) for _ in range(self._n_src)
+            ])
+        else:
+            self._neural_emissions = nn.ModuleList([])
 
         self._init_parameters()
 
@@ -43,9 +45,12 @@ class NeuralModule(nn.Module):
         )
         nn_trans = torch.softmax(trans_temp / temperature, dim=-1)
 
-        nn_emiss = torch.stack([torch.softmax(emiss(embs).view(
-                batch_size, max_seq_length, self._d_hidden, self._d_obs
-            ) / temperature, dim=-1) for emiss in self._neural_emissions]).permute(1, 2, 0, 3, 4)
+        if self._use_neural_emiss:
+            nn_emiss = torch.stack([torch.softmax(emiss(embs).view(
+                    batch_size, max_seq_length, self._d_hidden, self._d_obs
+                ) / temperature, dim=-1) for emiss in self._neural_emissions]).permute(1, 2, 0, 3, 4)
+        else:
+            nn_emiss = None
         return nn_trans, nn_emiss
 
     def _init_parameters(self):
@@ -63,19 +68,17 @@ class CHMM(nn.Module):
                  emiss_matrix=None):
         super(CHMM, self).__init__()
 
-        self._d_emb = config.d_emb  # embedding dimension
         self._n_src = config.n_src
         self._d_obs = config.d_obs  # number of possible obs_set
         self._n_hidden = config.d_hidden  # number of states
 
         self._trans_weight = config.trans_nn_weight
         self._emiss_weight = config.emiss_nn_weight
+        self._use_neural_emiss = not config.no_neural_emiss
 
         self._device = config.device
 
-        self._nn_module = NeuralModule(
-            d_emb=self._d_emb, d_hidden=self._n_hidden, n_src=self._n_src, d_obs=self._d_obs
-        )
+        self._nn_module = NeuralModule(config)
 
         # initialize unnormalized state-prior, transition and emission matrices
         self._initialize_model(
@@ -180,7 +183,10 @@ class CHMM(nn.Module):
         nn_trans, nn_emiss = self._nn_module(embs)
 
         self._log_trans = torch.log((1 - self._trans_weight) * trans + self._trans_weight * nn_trans)
-        self._log_emiss = torch.log((1 - self._emiss_weight) * emiss + self._emiss_weight * nn_emiss)
+        if nn_emiss is not None:
+            self._log_emiss = torch.log((1 - self._emiss_weight) * emiss + self._emiss_weight * nn_emiss)
+        else:
+            self._log_emiss = torch.log(emiss)
 
         # if at least one source observes an entity at a position, set the probabilities of other sources to
         # the mean value (so that they will not affect the prediction)

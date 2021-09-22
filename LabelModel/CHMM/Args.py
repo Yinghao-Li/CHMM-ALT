@@ -28,6 +28,9 @@ class CHMMArguments:
     trans_nn_weight: Optional[float] = field(
         default=1.0, metadata={'help': 'the weight of neural part in the transition matrix'}
     )
+    no_neural_emiss: Optional[bool] = field(
+        default=False, metadata={'help': 'Not use neural networks to predict emission probabilities.'}
+    )
     emiss_nn_weight: Optional[float] = field(
         default=1.0, metadata={'help': 'the weight of neural part in the emission matrix'}
     )
