@@ -2,7 +2,7 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple)](https://www.python.org/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Yinghao-Li/CHMM-ALT)
-![GitHub stars](https://img.shields.io/github/stars/Yinghao-Li/CHMM-ALT.svg?color=green)
+![GitHub stars](https://img.shields.io/github/stars/Yinghao-Li/CHMM-ALT.svg?color=gold)
 ![GitHub forks](https://img.shields.io/github/forks/Yinghao-Li/CHMM-ALT?color=9cf)
 
 
