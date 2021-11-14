@@ -26,8 +26,6 @@ To get those files, use `git submodule update --init` ([ref](https://git-scm.com
 
 ## 2. Dataset Construction
 
-**Note:** Our data format is <mark>not compatible</mark> with [Wrench](https://github.com/JieyuZ2/wrench/issues/9).
-
 The dataset construction program for the `NCBI-Disease`, `BC5CDR` and `LaptopReview` datasets is modified from the wiser project ([paper](http://cs.brown.edu/people/sbach/files/safranchik-aaai20.pdf))
 that contains three repos.
 
@@ -72,6 +70,7 @@ You can also customize the script with your favorite arguments.
 However, our code has fully support to the previous version of datasets.
 To reproduce the results in the paper, please refer to the dataset construction methods in the `prev` branch and link the file location arguments to their directories.
 
+**Note:** Our data format is ==not compatible== with [Wrench](https://github.com/JieyuZ2/wrench/issues/9).
 
 ## 3. Run
 
