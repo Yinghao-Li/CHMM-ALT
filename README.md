@@ -70,7 +70,7 @@ You can also customize the script with your favorite arguments.
 However, our code has fully support to the previous version of datasets.
 To reproduce the results in the paper, please refer to the dataset construction methods in the `prev` branch and link the file location arguments to their directories.
 
-**Note:** Our data format is ==not compatible== with [Wrench](https://github.com/JieyuZ2/wrench/issues/9).
+**Note:** Our data format is <span style="color:red">not compatible</span> with [Wrench](https://github.com/JieyuZ2/wrench/issues/9).
 
 ## 3. Run
 
