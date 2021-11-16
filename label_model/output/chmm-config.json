@@ -1,0 +1,76 @@
+{
+  "entity_types": [
+    "TERM"
+  ],
+  "bio_label_types": [
+    "O",
+    "B-TERM",
+    "I-TERM"
+  ],
+  "sources": [
+    "tag-CoreDictionary",
+    "tag-OtherTerms",
+    "tag-iStuff",
+    "tag-Feelings",
+    "link-ExtractedPhrase",
+    "link-ConsecutiveCapitals"
+  ],
+  "src_priors": {
+    "tag-CoreDictionary": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "tag-OtherTerms": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "tag-iStuff": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "tag-Feelings": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "link-ExtractedPhrase": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "link-ConsecutiveCapitals": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "d_emb": 768,
+  "train_file": "../data_constr/LaptopReview/train.json",
+  "valid_file": "../data_constr/LaptopReview/valid.json",
+  "test_file": "../data_constr/LaptopReview/test.json",
+  "output_dir": "./output",
+  "trans_nn_weight": 1.0,
+  "no_neural_emiss": false,
+  "emiss_nn_weight": 1.0,
+  "num_lm_train_epochs": 15,
+  "num_lm_nn_pretrain_epochs": 10,
+  "num_lm_valid_tolerance": 50,
+  "hmm_lr": 0.01,
+  "nn_lr": 0.0001,
+  "lm_batch_size": 16,
+  "obs_normalization": false,
+  "bert_model_name_or_path": "distilbert-base-uncased",
+  "no_cuda": false,
+  "log_dir": "logs\\chmm-train.11.16.21-17.35.log",
+  "seed": 1,
+  "debug_mode": true
+}

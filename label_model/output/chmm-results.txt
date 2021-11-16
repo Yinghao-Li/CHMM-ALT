@@ -1,0 +1,32 @@
+[Epoch 1]
+  precision: 1.0000  recall: 0.0500  f1: 0.0952
+[Epoch 2]
+  precision: 1.0000  recall: 0.0750  f1: 0.1395
+[Epoch 3]
+  precision: 1.0000  recall: 0.0875  f1: 0.1609
+[Epoch 4]
+  precision: 1.0000  recall: 0.0875  f1: 0.1609
+[Epoch 5]
+  precision: 1.0000  recall: 0.0875  f1: 0.1609
+[Epoch 6]
+  precision: 1.0000  recall: 0.1125  f1: 0.2022
+[Epoch 7]
+  precision: 1.0000  recall: 0.1250  f1: 0.2222
+[Epoch 8]
+  precision: 1.0000  recall: 0.1500  f1: 0.2609
+[Epoch 9]
+  precision: 1.0000  recall: 0.1625  f1: 0.2796
+[Epoch 10]
+  precision: 1.0000  recall: 0.1875  f1: 0.3158
+[Epoch 11]
+  precision: 1.0000  recall: 0.1875  f1: 0.3158
+[Epoch 12]
+  precision: 1.0000  recall: 0.1875  f1: 0.3158
+[Epoch 13]
+  precision: 0.9412  recall: 0.2000  f1: 0.3299
+[Epoch 14]
+  precision: 0.9412  recall: 0.2000  f1: 0.3299
+[Epoch 15]
+  precision: 0.9412  recall: 0.2000  f1: 0.3299
+[Test]
+  precision: 0.9200  recall: 0.2875  f1: 0.4381
