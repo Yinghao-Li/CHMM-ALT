@@ -34,7 +34,7 @@ The dataset construction program for the `CoNLL 2003` dataset is based on [skwea
 
 ### Source Data
 
-The source data are provided in the folders `DataConstr/<DATASET NAME>/data`.
+The source data are provided in the folders `data_constr/<DATASET NAME>/data`.
 You can also download the source data from the links below:
 
 * [BC5CDR](https://www.ncbi.nlm.nih.gov/research/bionlp/Data/): Download the train, development, and test BioCreative V CDR corpus data files.
@@ -45,18 +45,18 @@ You can also download the source data from the links below:
 
 * [CoNLL 2003](https://www.clips.uantwerpen.be/conll2003/ner/): You can find a pre-processed CoNLL 2003 English dataset [here](https://github.com/ningshixian/NER-CONLL2003/tree/master/data).
 
-Place the downloaded data in the corresponding folders `DataConstr/<DATASET NAME>/data`.
+Place the downloaded data in the corresponding folders `data_constr/<DATASET NAME>/data`.
 
 ### External Dependencies
 
 To build CoNLL 2003 dataset, you may need to get the external dictionaries and models on which `skweak` depends.
 
 You can get these files from [here](https://github.com/NorskRegnesentral/skweak/releases).
-Unzip them and place the outputs into `DataConstr/Dependency/` for usage.
+Unzip them and place the outputs into `data_constr/Dependency/` for usage.
 
 ### Building datasets
 
-Run the `build.sh` script in the dataset folder `DataConstr/<DATASET NAME>` with 
+Run the `build.sh` script in the dataset folder `data_constr/<DATASET NAME>` with 
 ```
 ./build.sh
 ```
@@ -77,10 +77,14 @@ To reproduce the results in the paper, please refer to the dataset construction 
 We use the argument parsing techniques from the Huggingface `transformers` [repo](https://github.com/huggingface/transformers) in our program.
 It supports the ordinary argument parsing approach from shell inputs as well as parsing from `json` files.
 
+To try the code, clone this repo or your forked repo into the local machine and follow the instructions below.
+Notice that this repo contains a submodule, which will not be automatically downloaded with `clone`.
+To fetch the submodule content, use `git submodule update --init`.
+When you update your local repo with `git pull`, be sure to run `git submodule update --remote` to get the submodule updates.
 
 ### Conditional hidden Markov model
 
-To train and evaluate CHMM, go to `./LabelModel/` and run
+To train and evaluate CHMM, go to `./label_model/` and run
 ```shell
 python chmm_train.py config.json
 ```
@@ -89,7 +93,7 @@ You need to fine-tune the hyper-parameters to get better performance.
 
 ### BERT-NER
 
-You can train a fully-supervised BERT-NER model with ground truth labels by going to the `./EndModel/` folder and run
+You can train a fully-supervised BERT-NER model with ground truth labels by going to the `./end_model/` folder and run
 ```shell
 python bert_train.py config.json
 ```
