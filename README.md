@@ -10,14 +10,14 @@
 
 This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-Source Weakly Supervised Named Entity Recognition](https://arxiv.org/abs/2105.12848).
 
-> To view the previous version of program used for the paper, switch to branch `prev`.
+> To view the previous version of the program used for the paper, switch to branch `prev`.
 
 Conditional hidden Markov model (CHMM) is also included in the [Wrench project 🔧](https://github.com/JieyuZ2/wrench)
 
 ## 1. Dependency
 Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
-The model training program should be compatible with any package versions.
+The model training program should be compatible with any package version.
 
 **Note**: This repo contains submodules.
 Cloning this repo does not automatically clone any files in the submodule folder.
@@ -60,14 +60,14 @@ Run the `build.sh` script in the dataset folder `DataConstr/<DATASET NAME>` with
 ```
 ./build.sh
 ```
-You will see `train.json`, `valid.json`, `test.json` and `meta.json` files in your target folder if the program runs successfully.
+You will see `train.json`, `valid.json`, `test.json`, and `meta.json` files in your target folder if the program runs successfully.
 
 You can also customize the script with your favorite arguments.
 
 ### Backward compatibility
-**Notice:** the datasets contructed in the way above are not completely the same as the datasets used in the paper.
+**Notice:** the datasets constructed in the way above are not completely the same as the datasets used in the paper.
 
-However, our code has fully support to the previous version of datasets.
+However, our code has full support for the previous version of datasets.
 To reproduce the results in the paper, please refer to the dataset construction methods in the `prev` branch and link the file location arguments to their directories.
 
 **Note:** Our data format is <span style="color:red">not compatible</span> with [Wrench](https://github.com/JieyuZ2/wrench/issues/9).
@@ -75,7 +75,7 @@ To reproduce the results in the paper, please refer to the dataset construction 
 ## 3. Run
 
 We use the argument parsing techniques from the Huggingface `transformers` [repo](https://github.com/huggingface/transformers) in our program.
-It supports the orginary argument parsing approach from shell inputs as well as parsing from `json` files.
+It supports the ordinary argument parsing approach from shell inputs as well as parsing from `json` files.
 
 
 ### Conditional hidden Markov model
