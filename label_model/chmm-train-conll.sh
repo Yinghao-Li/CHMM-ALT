@@ -12,18 +12,17 @@ set -e
 
 # ne: with neural emission; oe: without neural emission
 BERT_MODEL="bert-base-uncased"
-TRAIN_FILE="../../data/Co03/Co03-linked-train.pt"
-VALID_FILE="../../data/Co03/Co03-linked-dev.pt"
-TEST_FILE="../../data/Co03/Co03-linked-test.pt"
-# OUTPUT_DIR="./output/conll-chmm-oe-0/"
-OUTPUT_DIR="./output/conll-chmm-ne-0/"  
+TRAIN_FILE="../data_constr/LaptopReview/train.json"
+VALID_FILE="../data_constr/LaptopReview/valid.json"
+TEST_FILE="../data_constr/LaptopReview/test.json"
+OUTPUT_DIR="./output/"
 
-LM_BATCH_SIZE=32
+LM_BATCH_SIZE=256
 
-NUM_LM_NN_PRETRAIN_EPOCHS=5
-NUM_LM_TRAIN_EPOCHS=20
+NUM_LM_NN_PRETRAIN_EPOCHS=10
+NUM_LM_TRAIN_EPOCHS=30
 
-NN_LR=0.00001
+NN_LR=0.0001
 SEED=0
 
 CUDA_VISIBLE_DEVICES=$1 python chmm-train.py \
@@ -37,4 +36,4 @@ CUDA_VISIBLE_DEVICES=$1 python chmm-train.py \
     --num_lm_train_epochs $NUM_LM_TRAIN_EPOCHS \
     --nn_lr $NN_LR \
     --seed $SEED \
-    # --no_neural_emiss
+    --obs_normalization

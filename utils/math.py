@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from typing import Optional, Union
+from typing import Optional
 
 
 def log_matmul(a: torch.Tensor, b: torch.Tensor):
@@ -73,97 +73,3 @@ def entropy(p: torch.Tensor, dim: Optional[int] = -1):
     """
     h = torch.sum(-p * torch.log(p), dim=dim)
     return h
-
-
-def prob_scaling(p: Union[float, torch.Tensor, np.ndarray],
-                 r: Optional[float] = 0.5,
-                 e: Optional[float] = 2,
-                 n: Optional[float] = 2):
-    """
-    scale the probabilities: pushing the probability values to extreme
-
-    Parameters
-    ----------
-    p: input probabilities
-    r: split point: the point that separates the "pushing up" and "pushing down" operations
-    e: tier 1 inverse exponential term
-    n: tier 2 exponential term
-
-    Returns
-    -------
-    type(p)
-    """
-    p_ = p ** (1 / e)
-
-    pu = p_ > r
-    pd = p_ <= r
-
-    ru = pu * (-(1 / (1 - r)) ** (n - 1) * (1 - p_) ** n + 1)
-    rd = pd * ((1 / r) ** (n - 1) * p_ ** n)
-
-    return ru + rd
-
-
-def entity_emiss_diag(x):
-    """
-    emission prior of entity to itself
-
-    Parameters
-    ----------
-    x
-
-    Returns
-    -------
-
-    """
-    return x
-
-
-def entity_emiss_o(x, n_lbs, tp, exp_term=2):
-    """
-    The function that calculates the emission prior of entity labels to the non-entity label 'O'
-    according to the diagonal values of the emission prior
-
-    Parameters
-    ----------
-    x: diagonal values
-    n_lbs: number of entity labels (2e+1)
-    tp: turning point
-    exp_term: the exponential term that controls the slope of the function
-
-    Returns
-    -------
-    non-diagonal emission priors
-    """
-    # separating piecewise function
-    low = x < tp
-    high = x >= tp
-
-    # parameters for the first piece
-    a = (2 - n_lbs) / ((exp_term - 1) * tp ** exp_term - exp_term * tp ** (exp_term - 1))
-    b = 1 - n_lbs
-    # parameter for the second piece
-    f_tp = a * tp ** exp_term + b * tp + 1
-    c = f_tp / (tp - 1)
-
-    # piecewise result
-    y = low * (a * x ** exp_term + b * x + 1) + high * (c * x - c)
-    return y
-
-
-def entity_emiss_nondiag(x, n_lbs, tp, exp_term=2):
-    """
-    emission prior of entity to other entities
-
-    Parameters
-    ----------
-    x: diagonal values
-    n_lbs: number of entity labels (2e+1)
-    tp: turning point
-    exp_term: the exponential term that controls the slope of the function
-
-    Returns
-    -------
-
-    """
-    return (1 - entity_emiss_diag(x) - entity_emiss_o(x, n_lbs, tp, exp_term)) / (n_lbs - 2)

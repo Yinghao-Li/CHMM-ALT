@@ -10,8 +10,6 @@
     "lm_batch_size": 16,
     "seed": 1,
     "nn_lr": 0.0001,
-    "obs_normalization": false,
-    "debug_mode": true,
-    "use_dirichlet_emiss": true,
-    "use_src_prior": true
+    "obs_normalization": true,
+    "debug_mode": true
 }
