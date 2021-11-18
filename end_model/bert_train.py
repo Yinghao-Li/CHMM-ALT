@@ -26,10 +26,6 @@ logger = logging.getLogger(__name__)
 
 
 def bert_train(args: BertArguments):
-    # setup logging
-    set_logging(log_dir=args.log_dir)
-
-    logging_args(args)
     set_seed(args.seed)
     config = BertConfig().from_args(args)
 
@@ -125,7 +121,11 @@ if __name__ == '__main__':
     else:
         bert_args, = parser.parse_args_into_dataclasses()
 
+    # Setup logging
     if bert_args.log_dir is None:
-        bert_args.log_dir = os.path.join('logs', f'{_current_file_name}.{_time}.log')
+        bert_args.log_dir = os.path.join('logs', f'{_current_file_name}', f'{_time}.log')
+
+    set_logging(log_dir=bert_args.log_dir)
+    logging_args(bert_args)
 
     bert_train(args=bert_args)

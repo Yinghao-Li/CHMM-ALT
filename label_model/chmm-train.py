@@ -26,10 +26,6 @@ logger = logging.getLogger(__name__)
 
 
 def chmm_train(args: CHMMArguments):
-    # setup logging
-    set_logging(log_dir=args.log_dir)
-
-    logging_args(args)
     set_seed(args.seed)
     config = CHMMConfig().from_args(args)
 
@@ -118,7 +114,11 @@ if __name__ == '__main__':
     else:
         chmm_args, = parser.parse_args_into_dataclasses()
 
+    # Setup logging
     if chmm_args.log_dir is None:
-        chmm_args.log_dir = os.path.join('logs', f'{_current_file_name}.{_time}.log')
+        chmm_args.log_dir = os.path.join('logs', f'{_current_file_name}', f'{_time}.log')
+
+    set_logging(log_dir=chmm_args.log_dir)
+    logging_args(chmm_args)
 
     chmm_train(args=chmm_args)

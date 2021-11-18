@@ -30,10 +30,6 @@ logger = logging.getLogger(__name__)
 
 
 def chmm_train(args: AltArguments):
-    # setup logging
-    set_logging(log_dir=args.log_dir)
-
-    logging_args(args)
     set_seed(args.seed)
     config = AltConfig().from_args(args)
 
@@ -334,7 +330,11 @@ if __name__ == '__main__':
     else:
         alt_args, = parser.parse_args_into_dataclasses()
 
+    # Setup logging
     if alt_args.log_dir is None:
-        alt_args.log_dir = os.path.join('logs', f'{_current_file_name}.{_time}.log')
+        alt_args.log_dir = os.path.join('logs', f'{_current_file_name}', f'{_time}.log')
+
+    set_logging(log_dir=alt_args.log_dir)
+    logging_args(alt_args)
 
     chmm_train(args=alt_args)
