@@ -1,12 +1,12 @@
 # CHMM-ALT
 
+**Al**ternate-**t**raining for **C**onditional **h**idden **M**arkov **m**odel and BERT-NER.
+
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple)](https://www.python.org/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Yinghao-Li/CHMM-ALT)
 ![GitHub stars](https://img.shields.io/github/stars/Yinghao-Li/CHMM-ALT.svg?color=gold)
 ![GitHub forks](https://img.shields.io/github/forks/Yinghao-Li/CHMM-ALT?color=9cf)
 
-
-**Al**ternate-**t**raining for **C**onditional **h**idden **M**arkov **m**odel and BERT-NER.
 
 This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-Source Weakly Supervised Named Entity Recognition](https://arxiv.org/abs/2105.12848).
 
@@ -14,7 +14,7 @@ This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-So
 
 Conditional hidden Markov model (CHMM) is also included in the [Wrench project 🔧](https://github.com/JieyuZ2/wrench)
 
-## 1. Dependency
+## 1. Dependencies
 Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
 The model training program should be compatible with any package version.
@@ -26,7 +26,7 @@ To get those files, use `git submodule update --init` ([ref](https://git-scm.com
 
 ## 2. Dataset Construction
 
-The dataset construction program for the `NCBI-Disease`, `BC5CDR` and `LaptopReview` datasets is modified from the wiser project ([paper](http://cs.brown.edu/people/sbach/files/safranchik-aaai20.pdf))
+The dataset construction program for the `NCBI-Disease`, `BC5CDR` and `LaptopReview` datasets is modified from the `wiser` project ([paper](http://cs.brown.edu/people/sbach/files/safranchik-aaai20.pdf))
 that contains three repos.
 
 The dataset construction program for the `CoNLL 2003` dataset is based on [skweak](https://github.com/NorskRegnesentral/skweak).
@@ -49,9 +49,9 @@ Place the downloaded data in the corresponding folders `data_constr/<DATASET NAM
 
 ### External Dependencies
 
-To build CoNLL 2003 dataset, you may need to get the external dictionaries and models on which `skweak` depends.
+To build datasets, you may need to get the external dictionaries and models on which `skweak` and `wiser` depends.
 
-You can get these files from [here](https://github.com/NorskRegnesentral/skweak/releases).
+You can get the files from [Google Drive](https://drive.google.com/file/d/1BaSQ2rQvAA8ecgIc3KDtmUpGvdvDzr5S/view?usp=sharing) or download them individually from [here](https://github.com/NorskRegnesentral/skweak/releases) and [here](https://github.com/BatsResearch/safranchik-aaai20-code).
 Unzip them and place the outputs into `data_constr/Dependency/` for usage.
 
 ### Building datasets
