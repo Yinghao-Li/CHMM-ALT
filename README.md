@@ -1,7 +1,5 @@
 # CHMM-ALT
 
-**Important**: The dependency to submodule "seqlbtoolkit" is currently broken. Will fix this in several days. In the meanwhile, you can use the implementation in [Wrench](https://github.com/JieyuZ2/wrench) for experiments.
-
 **Al**ternate-**t**raining for **C**onditional **h**idden **M**arkov **m**odel and BERT-NER.
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple)](https://www.python.org/)
@@ -20,6 +18,8 @@ Conditional hidden Markov model (CHMM) is also included in the [Wrench project ð
 Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
 The model training program should be compatible with any package version.
+
+[5/21/2022] Made the submodule "seqlbtoolkit" an external package that should be install with `pip`.
 
 **Note**: This repo contains submodules.
 Cloning this repo does not automatically clone any files in the submodule folder.
