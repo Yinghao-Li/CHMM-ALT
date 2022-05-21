@@ -1,5 +1,7 @@
 # CHMM-ALT
 
+**Important**: The dependency to submodule "seqlbtoolkit" is currently broken. Will fix this in several days. In the meanwhile, you can use the implementation in [Wrench](https://github.com/JieyuZ2/wrench) for experiments.
+
 **Al**ternate-**t**raining for **C**onditional **h**idden **M**arkov **m**odel and BERT-NER.
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple)](https://www.python.org/)
