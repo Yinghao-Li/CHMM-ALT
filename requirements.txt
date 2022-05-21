@@ -20,3 +20,4 @@ overrides~=6.1.0
 snips_nlu_parsers~=0.4.3
 pytokenizations~=0.8.4
 pytextspan~=0.5.4
+seqlbtoolkit==0.0.2
