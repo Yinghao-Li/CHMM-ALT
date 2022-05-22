@@ -14,6 +14,8 @@ This code accompanies the paper [BERTifying the Hidden Markov Model for Multi-So
 
 Conditional hidden Markov model (CHMM) is also included in the [Wrench project 🔧](https://github.com/JieyuZ2/wrench)
 
+Check out my follow-up to this work: [Sparse-CHMM](https://github.com/Yinghao-Li/Sparse-CHMM)
+
 ## 1. Dependencies
 Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
