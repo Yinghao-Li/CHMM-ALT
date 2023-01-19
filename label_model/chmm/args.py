@@ -1,6 +1,6 @@
 import torch
 import logging
-from typing import Optional, List
+from typing import Optional
 from dataclasses import dataclass, field
 from transformers.file_utils import cached_property, torch_required
 

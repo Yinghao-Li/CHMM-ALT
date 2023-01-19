@@ -1,6 +1,3 @@
-import sys
-sys.path.append('../..')
-
 import logging
 from tqdm.auto import tqdm
 
@@ -40,9 +37,9 @@ class CHMMTrainer(CHMMBaseTrainer):
     def initialize_model(self):
         self._model = CHMM(
             config=self._config,
-            state_prior=self._state_prior,
-            trans_matrix=self._trans_mat,
-            emiss_matrix=self._emiss_mat
+            state_prior=self._init_state_prior,
+            trans_matrix=self._init_trans_mat,
+            emiss_matrix=self._init_emiss_mat
         )
         return self
 
@@ -50,7 +47,7 @@ class CHMMTrainer(CHMMBaseTrainer):
         train_loss = 0
         num_samples = 0
 
-        self._model._nn_module.train()
+        self._model.nn_module.train()
         if trans_ is not None:
             trans_ = trans_.to(self._config.device)
         if emiss_ is not None:
@@ -62,7 +59,7 @@ class CHMMTrainer(CHMMBaseTrainer):
             num_samples += batch_size
 
             optimizer.zero_grad()
-            nn_trans, nn_emiss = self._model._nn_module(embs=emb_batch)
+            nn_trans, nn_emiss = self._model.nn_module(embs=emb_batch)
             batch_size, max_seq_len, n_hidden, _ = nn_trans.size()
 
             loss_mask = torch.zeros([batch_size, max_seq_len], device=self._config.device)
@@ -135,7 +132,7 @@ class CHMMTrainer(CHMMBaseTrainer):
             logger.info("Pre-training neural module...")
             for epoch_i in range(self._config.num_lm_nn_pretrain_epochs):
                 train_loss = self.pretrain_step(
-                    training_dataloader, self._pretrain_optimizer, self._trans_mat, self._emiss_mat
+                    training_dataloader, self._pretrain_optimizer, self._init_trans_mat, self._init_emiss_mat
                 )
                 logger.info(f"Epoch: {epoch_i}, Loss: {train_loss}")
             logger.info("Neural module pretrained!")
@@ -235,7 +232,7 @@ class CHMMTrainer(CHMMBaseTrainer):
 
     def get_pretrain_optimizer(self):
         pretrain_optimizer = torch.optim.Adam(
-            self._model._nn_module.parameters(),
+            self._model.nn_module.parameters(),
             lr=5e-4,
             weight_decay=1e-5
         )
@@ -244,12 +241,12 @@ class CHMMTrainer(CHMMBaseTrainer):
     def get_optimizer(self):
         # ----- initialize optimizer -----
         hmm_params = [
-            self._model._unnormalized_emiss,
-            self._model._unnormalized_trans,
-            self._model._state_priors
+            self._model.unnormalized_emiss,
+            self._model.unnormalized_trans,
+            self._model.state_priors
         ]
         optimizer = torch.optim.Adam(
-            [{'params': self._model._nn_module.parameters(), 'lr': self._config.nn_lr},
+            [{'params': self._model.nn_module.parameters(), 'lr': self._config.nn_lr},
              {'params': hmm_params}],
             lr=self._config.hmm_lr,
             weight_decay=1e-5

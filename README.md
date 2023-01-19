@@ -21,13 +21,6 @@ Please check `requirement.txt` for the package dependency requirement.
 The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
 The model training program should be compatible with any package version.
 
-[5/21/2022] Made the submodule "seqlbtoolkit" an external package that should be install with `pip`.
-
-**Note**: This repo contains submodules.
-Cloning this repo does not automatically clone any files in the submodule folder.
-To get those files, use `git submodule update --init` ([ref](https://git-scm.com/book/en/v2/Git-Tools-Submodules)). 
-
-
 ## 2. Dataset Construction
 
 The dataset construction program for the `NCBI-Disease`, `BC5CDR` and `LaptopReview` datasets is modified from the `wiser` project ([paper](http://cs.brown.edu/people/sbach/files/safranchik-aaai20.pdf))
