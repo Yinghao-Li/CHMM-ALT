@@ -8,7 +8,7 @@ from tqdm.auto import tqdm
 import torch
 from torch.nn import functional as F
 
-from seqlbtoolkit.eval import Metric, get_ner_metrics
+from seqlbtoolkit.base_model.eval import Metric, get_ner_metrics
 from seqlbtoolkit.chmm.dataset import CHMMBaseDataset
 from seqlbtoolkit.chmm.train import CHMMBaseTrainer
 from .args import CHMMConfig
