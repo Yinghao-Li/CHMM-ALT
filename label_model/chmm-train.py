@@ -29,29 +29,62 @@ def chmm_train(args: CHMMArguments):
     set_seed(args.seed)
     config = CHMMConfig().from_args(args)
 
-    training_dataset = valid_dataset = test_dataset = None
-    if args.train_file:
-        logger.info('Loading training dataset...')
-        training_dataset = CHMMBaseDataset().load_file(
-            file_path=args.train_file,
-            config=config
-        )
-    if args.valid_file:
-        logger.info('Loading validation dataset...')
-        valid_dataset = CHMMBaseDataset().load_file(
-            file_path=args.valid_file,
-            config=config
-        )
-    if args.test_file:
-        logger.info('Loading test dataset...')
-        test_dataset = CHMMBaseDataset().load_file(
-            file_path=args.test_file,
-            config=config
-        )
-
     # create output dir if it does not exist
     if not os.path.isdir(args.output_dir):
         os.makedirs(os.path.abspath(args.output_dir))
+
+    # load dataset
+    training_dataset = valid_dataset = test_dataset = None
+    if args.load_preprocessed_dataset:
+        logger.info('Loading pre-processed datasets...')
+        file_dir = os.path.split(args.train_path)[0]
+        try:
+            training_dataset = CHMMBaseDataset().load(
+                file_dir=file_dir,
+                dataset_type='train',
+                config=config
+            )
+            valid_dataset = CHMMBaseDataset().load(
+                file_dir=file_dir,
+                dataset_type='valid',
+                config=config
+            )
+            test_dataset = CHMMBaseDataset().load(
+                file_dir=file_dir,
+                dataset_type='test',
+                config=config
+            )
+        except Exception as err:
+            logger.exception(f"Encountered error {err} while loading the pre-processed datasets")
+            training_dataset = valid_dataset = test_dataset = None
+
+    if training_dataset is None:
+        if args.train_path:
+            logger.info('Loading training dataset...')
+            training_dataset = CHMMBaseDataset().load_file(
+                file_path=args.train_path,
+                config=config
+            )
+        if args.valid_path:
+            logger.info('Loading validation dataset...')
+            valid_dataset = CHMMBaseDataset().load_file(
+                file_path=args.valid_path,
+                config=config
+            )
+        if args.test_path:
+            logger.info('Loading test dataset...')
+            test_dataset = CHMMBaseDataset().load_file(
+                file_path=args.test_path,
+                config=config
+            )
+
+        if config.save_dataset:
+            logger.info(f"Saving datasets")
+            output_dir = os.path.split(config.train_path)[0] if config.save_dataset_to_data_dir else args.output_dir
+
+            training_dataset.save(output_dir, 'train', config)
+            valid_dataset.save(output_dir, 'valid', config)
+            test_dataset.save(output_dir, 'test', config)
 
     chmm_trainer = CHMMTrainer(
         config=config,
@@ -61,14 +94,14 @@ def chmm_train(args: CHMMArguments):
         test_dataset=test_dataset,
     ).initialize_trainer()
 
-    if args.train_file:
+    if args.train_path:
         logger.info("Start training CHMM.")
         valid_results = chmm_trainer.train()
     else:
         chmm_trainer.load(os.path.join(args.output_dir, 'chmm.bin'), load_optimizer_and_scheduler=True)
         valid_results = None
 
-    if args.test_file:
+    if args.test_path:
         logger.info("Start testing CHMM.")
         test_metrics = chmm_trainer.test()
     else:
@@ -121,4 +154,8 @@ if __name__ == '__main__':
     set_logging(log_dir=chmm_args.log_dir)
     logging_args(chmm_args)
 
-    chmm_train(args=chmm_args)
+    try:
+        chmm_train(args=chmm_args)
+    except Exception as e:
+        logger.exception(e)
+        raise e

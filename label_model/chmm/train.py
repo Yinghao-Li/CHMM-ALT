@@ -1,10 +1,14 @@
+import sys
+sys.path.append('../..')
+
+import time
 import logging
 from tqdm.auto import tqdm
 
 import torch
 from torch.nn import functional as F
 
-from seqlbtoolkit.base_model.eval import Metric, get_ner_metrics
+from seqlbtoolkit.eval import Metric, get_ner_metrics
 from seqlbtoolkit.chmm.dataset import CHMMBaseDataset
 from seqlbtoolkit.chmm.train import CHMMBaseTrainer
 from .args import CHMMConfig
@@ -27,6 +31,10 @@ class CHMMTrainer(CHMMBaseTrainer):
             config, collate_fn, training_dataset, valid_dataset, test_dataset, pretrain_optimizer, optimizer
         )
 
+    @property
+    def neural_module(self):
+        return self._model.neural_module
+
     def initialize_trainer(self):
         """
         Initialize necessary components for training, returns self
@@ -47,7 +55,7 @@ class CHMMTrainer(CHMMBaseTrainer):
         train_loss = 0
         num_samples = 0
 
-        self._model.nn_module.train()
+        self.neural_module.train()
         if trans_ is not None:
             trans_ = trans_.to(self._config.device)
         if emiss_ is not None:
@@ -59,7 +67,7 @@ class CHMMTrainer(CHMMBaseTrainer):
             num_samples += batch_size
 
             optimizer.zero_grad()
-            nn_trans, nn_emiss = self._model.nn_module(embs=emb_batch)
+            nn_trans, nn_emiss = self.neural_module(embs=emb_batch)
             batch_size, max_seq_len, n_hidden, _ = nn_trans.size()
 
             loss_mask = torch.zeros([batch_size, max_seq_len], device=self._config.device)
@@ -100,6 +108,10 @@ class CHMMTrainer(CHMMBaseTrainer):
 
         self._model.train()
 
+        start_time = None
+        if self.config.track_training_time:
+            start_time = time.time()
+
         for i, batch in enumerate(tqdm(data_loader)):
             # get data
             emb_batch, obs_batch, seq_lens = map(lambda x: x.to(self._config.device), batch[:3])
@@ -119,6 +131,10 @@ class CHMMTrainer(CHMMBaseTrainer):
 
             # track loss
             train_loss += loss.item() * batch_size
+
+        if start_time is not None:
+            logger.info(f"Training time for current epoch: {time.time() - start_time} s.")
+
         train_loss /= num_samples
 
         return train_loss
@@ -230,9 +246,31 @@ class CHMMTrainer(CHMMBaseTrainer):
 
         return pred_lbs, pred_probs
 
+    def get_trans_and_emiss(self, dataset: CHMMBaseDataset) -> tuple[list[torch.Tensor], list[torch.Tensor]]:
+        data_loader = self.get_dataloader(dataset)
+        self.neural_module.eval()
+
+        transitions = None
+        emissions = None
+        with torch.no_grad():
+            for i, batch in enumerate(tqdm(data_loader)):
+                emb_batch = batch[0].to(self.config.device)
+                seq_lens = batch[2].to(self.config.device)
+
+                # predict reliability scores
+                trans_probs, emiss_probs = self.neural_module(embs=emb_batch)
+
+                if transitions is None:
+                    transitions = [trans[:seq_len] for trans, seq_len in zip(trans_probs.detach().cpu(), seq_lens)]
+                    emissions = [emiss[:seq_len] for emiss, seq_len in zip(emiss_probs.detach().cpu(), seq_lens)]
+                else:
+                    transitions += [trans[:seq_len] for trans, seq_len in zip(trans_probs.detach().cpu(), seq_lens)]
+                    emissions += [emiss[:seq_len] for emiss, seq_len in zip(emiss_probs.detach().cpu(), seq_lens)]
+        return transitions, emissions
+
     def get_pretrain_optimizer(self):
         pretrain_optimizer = torch.optim.Adam(
-            self._model.nn_module.parameters(),
+            self.neural_module.parameters(),
             lr=5e-4,
             weight_decay=1e-5
         )
@@ -246,7 +284,7 @@ class CHMMTrainer(CHMMBaseTrainer):
             self._model.state_priors
         ]
         optimizer = torch.optim.Adam(
-            [{'params': self._model.nn_module.parameters(), 'lr': self._config.nn_lr},
+            [{'params': self.neural_module.parameters(), 'lr': self._config.nn_lr},
              {'params': hmm_params}],
             lr=self._config.hmm_lr,
             weight_decay=1e-5

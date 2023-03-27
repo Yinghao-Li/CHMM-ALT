@@ -14,18 +14,31 @@ class CHMMArguments:
     """
     Arguments regarding the training of Neural hidden Markov Model
     """
-    train_file: Optional[str] = field(
+    train_path: Optional[str] = field(
         default='', metadata={'help': 'training data name'}
     )
-    valid_file: Optional[str] = field(
+    valid_path: Optional[str] = field(
         default='', metadata={'help': 'development data name'}
     )
-    test_file: Optional[str] = field(
+    test_path: Optional[str] = field(
         default='', metadata={'help': 'test data name'}
     )
     output_dir: Optional[str] = field(
         default='.',
         metadata={"help": "The output folder where the model predictions and checkpoints will be written."},
+    )
+    save_dataset: Optional[bool] = field(
+        default=False, metadata={"help": "Whether save the datasets used for training & validation & test"}
+    )
+    save_dataset_to_data_dir: Optional[bool] = field(
+        default=False, metadata={"help": "Whether save the datasets to the original dataset folder. "
+                                         "If not, the dataset would be saved to the result folder."}
+    )
+    load_preprocessed_dataset: Optional[bool] = field(
+        default=False, metadata={"help": "Whether load the pre-processed datasets from disk"}
+    )
+    track_training_time: Optional[bool] = field(
+        default=False, metadata={'help': "Whether track training time in log files"}
     )
     trans_nn_weight: Optional[float] = field(
         default=1.0, metadata={'help': 'the weight of neural part in the transition matrix'}

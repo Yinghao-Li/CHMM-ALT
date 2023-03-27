@@ -78,13 +78,17 @@ class CHMM(nn.Module):
 
         self._device = config.device
 
-        self.nn_module = NeuralModule(config)
+        self._nn_module = NeuralModule(config)
 
         # initialize unnormalized state-prior, transition and emission matrices
         self._initialize_model(
             state_prior=state_prior, trans_matrix=trans_matrix, emiss_matrix=emiss_matrix
         )
         self.to(self._device)
+
+    @property
+    def neural_module(self):
+        return self._nn_module
 
     @property
     def log_trans(self):
@@ -179,7 +183,7 @@ class CHMM(nn.Module):
         emiss = torch.softmax(self.unnormalized_emiss / temperature, dim=-1)
 
         # get neural transition and emission matrices
-        nn_trans, nn_emiss = self.nn_module(embs)
+        nn_trans, nn_emiss = self._nn_module(embs)
 
         self._log_trans = torch.log((1 - self._trans_weight) * trans + self._trans_weight * nn_trans)
         if nn_emiss is not None:
@@ -187,8 +191,6 @@ class CHMM(nn.Module):
         else:
             self._log_emiss = torch.log(emiss)
 
-        # if at least one source observes an entity at a position, set the probabilities of other sources to
-        # the mean value (so that they will not affect the prediction)
         if normalize_observation:
             lbs = obs.argmax(dim=-1)
             # at least one source observes an entity
