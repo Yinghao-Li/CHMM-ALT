@@ -1,4 +1,4 @@
-from ..Src.wiser.rules import TaggingRule, LinkingRule, DictionaryMatcher, ElmoLinkingRule
+from .wiser.rules import TaggingRule, LinkingRule, DictionaryMatcher, ElmoLinkingRule
 
 
 def bc5cdr_annotators(docs, reader):

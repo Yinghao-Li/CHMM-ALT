@@ -8,14 +8,14 @@ import argparse
 import numpy as np
 from datetime import datetime
 
-from data_constr.Src.wiser.data.dataset_readers import NCBIDiseaseDatasetReader
-from data_constr.Src.Data import (
+from data_constr.src.wiser.data.dataset_readers import NCBIDiseaseDatasetReader
+from data_constr.src.data import (
     span_to_label,
     annotate_sent_with_wiser_allennlp,
     linking_to_tagging_annos
 )
-from data_constr.Src.WiserAnnotator import ncbi_annotators
-from data_constr.Src.IO import load_ncbi_sentences, set_logging
+from data_constr.src.wiser_annotator import ncbi_annotators
+from data_constr.src.io import load_ncbi_sentences, set_logging
 
 
 logger = logging.getLogger(__name__)

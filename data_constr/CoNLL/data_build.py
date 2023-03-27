@@ -10,9 +10,9 @@ import numpy as np
 from datetime import datetime
 
 from tqdm.auto import tqdm
-from data_constr.Src.IO import load_conll_2003_data, set_logging
-from data_constr.Src.SkweakAnnotator import construct_spacy_doc, CoNLL2003Annotator, ConLL2003Standardiser
-from data_constr.Src.Data import annotate_doc_with_spacy, span_to_label
+from data_constr.src.io import load_conll_2003_data, set_logging
+from data_constr.src.skweak_annotator import construct_spacy_doc, CoNLL2003Annotator, ConLL2003Standardiser
+from data_constr.src.data import annotate_doc_with_spacy, span_to_label
 
 
 logger = logging.getLogger(__name__)

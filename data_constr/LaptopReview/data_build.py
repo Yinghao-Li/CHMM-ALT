@@ -8,15 +8,15 @@ import logging
 import numpy as np
 from datetime import datetime
 
-from data_constr.Src.wiser.data.dataset_readers import LaptopsDatasetReader
-from data_constr.Src.Data import (
+from data_constr.src.wiser.data.dataset_readers import LaptopsDatasetReader
+from data_constr.src.data import (
     span_to_label,
     annotate_sent_with_wiser_allennlp,
     linking_to_tagging_annos
 )
-from data_constr.Src.WiserAnnotator import laptop_annotators
-from data_constr.Src.Util import set_seed_everywhere
-from data_constr.Src.IO import set_logging
+from data_constr.src.wiser_annotator import laptop_annotators
+from data_constr.src.util import set_seed_everywhere
+from data_constr.src.io import set_logging
 
 from xml.etree import ElementTree
 

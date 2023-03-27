@@ -5,7 +5,7 @@ import re
 import regex
 import numpy as np
 from typing import List
-from ..Src.Constants import OntoNotes_BIO
+from .constants import OntoNotes_BIO
 
 
 def one_hot(x, n_class=None):

@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../..')
 
 import numpy as np
 import torch
@@ -9,7 +7,7 @@ import logging
 from typing import List, Optional
 from tokenizations import get_alignments, get_original_spans
 
-from data_constr.Src.Constants import (
+from .constants import (
     CoNLL_SOURCE_NAMES,
     OntoNotes_INDICES,
     CoNLL_SOURCE_PRIORS,

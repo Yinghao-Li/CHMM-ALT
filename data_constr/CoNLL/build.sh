@@ -3,7 +3,6 @@
 # Author: Yinghao Li @ Georgia Tech ECE
 # All rights reserved
 
-
 # Quit if there are any errors
 set -e
 
@@ -12,4 +11,4 @@ do
 python data_build.py --partition $PARTITION
 done
 
-python update_meta.py
+python update_dataset.py

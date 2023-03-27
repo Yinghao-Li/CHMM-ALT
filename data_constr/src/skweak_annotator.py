@@ -14,7 +14,7 @@ from skweak.spacy import ModelAnnotator, TruecaseAnnotator
 from spacy.tokens import Doc, Span  # type: ignore
 from spacy.language import Language
 
-from ..Src.Constants import *
+from ..src.constants import *
 
 # Data files for gazetteers
 WIKIDATA = os.path.join(os.path.dirname(__file__), "../Dependency/wikidata_tokenised.json")
