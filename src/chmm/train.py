@@ -1,18 +1,18 @@
 import os
 import time
-import logging
-from tqdm.auto import tqdm
-
-import numpy as np
-from typing import Optional
-
 import torch
+import logging
+import numpy as np
+
+from tqdm.auto import tqdm
+from typing import Optional
 from torch.nn import functional as F
+
+from seqlbtoolkit.training.eval import Metric, get_ner_metrics
+from seqlbtoolkit.training.train import BaseTrainer
 
 from .model import CHMM
 from .dataset import CHMMBaseDataset
-from seqlbtoolkit.training.eval import Metric, get_ner_metrics
-from seqlbtoolkit.training.train import BaseTrainer
 
 
 OUT_RECALL = 0.9
@@ -423,7 +423,7 @@ class CHMMTrainer(BaseTrainer):
 
     def predict(self, dataset: CHMMBaseDataset):
 
-        data_loader = self.get_dataloader(dataset)
+        data_loader = self.get_dataloader(dataset, batch_size=self.config.lm_batch_size)
         self._model.eval()
 
         pred_lbs = list()

@@ -15,9 +15,9 @@ from transformers import (
 
 from seqlbtoolkit.io import set_logging, logging_args
 
-from label_model.chmm.train import CHMMTrainer
-from label_model.chmm.dataset import CHMMBaseDataset, collate_fn
-from label_model.chmm.args import CHMMArguments, CHMMConfig
+from src.chmm.train import CHMMTrainer
+from src.chmm.dataset import CHMMBaseDataset, collate_fn
+from src.chmm.args import CHMMArguments, CHMMConfig
 
 logger = logging.getLogger(__name__)
 

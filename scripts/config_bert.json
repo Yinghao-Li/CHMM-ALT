@@ -1,7 +1,7 @@
 {
-    "train_file": "../data_constr/LaptopReview/train.json",
-    "valid_file": "../data_constr/LaptopReview/valid.json",
-    "test_file": "../data_constr/LaptopReview/test.json",
+    "train_path": "./data/LaptopReview/train.json",
+    "valid_path": "./data/LaptopReview/valid.json",
+    "test_path": "./data/LaptopReview/test.json",
     "output_dir": "./output",
     "bert_model_name_or_path": "distilbert-base-uncased",
     "num_em_train_epochs": 5,

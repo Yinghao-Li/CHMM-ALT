@@ -1,6 +1,3 @@
-import sys
-sys.path.append('../..')
-
 import logging
 import numpy as np
 from typing import Optional
@@ -10,8 +7,8 @@ import torch.nn as nn
 
 from seqlbtoolkit.data import label_to_span
 
-from utils.math import log_matmul, log_maxmul, validate_prob, logsumexp
 from .args import CHMMConfig
+from src.utils.math import log_matmul, log_maxmul, validate_prob, logsumexp
 
 logger = logging.getLogger(__name__)
 

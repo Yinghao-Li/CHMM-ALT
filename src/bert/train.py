@@ -24,9 +24,9 @@ from transformers.trainer_pt_utils import get_parameter_names
 from transformers.modeling_outputs import TokenClassifierOutput
 
 from seqlbtoolkit.data import probs_to_lbs, ids_to_lbs
-from seqlbtoolkit.base_model.eval import Metric, get_ner_metrics
+from seqlbtoolkit.training.eval import Metric, get_ner_metrics
 from .args import BertConfig
-from .data import BertNERDataset
+from .dataset import BertNERDataset
 
 logger = logging.getLogger(__name__)
 

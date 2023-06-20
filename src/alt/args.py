@@ -1,12 +1,9 @@
-import sys
-sys.path.append('../..')
-
 import logging
 from typing import Optional
 from dataclasses import dataclass, field
 
-from label_model.chmm.args import CHMMArguments, CHMMConfig
-from end_model.bert.args import BertArguments, BertConfig
+from src.chmm.args import CHMMArguments, CHMMConfig
+from src.bert.args import BertArguments, BertConfig
 
 logger = logging.getLogger(__name__)
 

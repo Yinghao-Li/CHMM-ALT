@@ -1,9 +1,6 @@
 # coding=utf-8
 """ Train the conditional hidden Markov model with alternate training"""
 
-import sys
-sys.path.append('..')
-
 import logging
 import os
 import sys
@@ -19,12 +16,12 @@ from transformers import (
 # submodule dependencies
 from seqlbtoolkit.io import set_logging, logging_args
 from seqlbtoolkit.data import span_to_label, label_to_span
-from seqlbtoolkit.chmm.dataset import CHMMBaseDataset, collate_fn
 # in-project dependencies
-from label_model.chmm.train import CHMMTrainer
-from end_model.bert.data import BertNERDataset
-from end_model.bert.train import BertTrainer
-from alt_train.args import AltArguments, AltConfig
+from src.chmm.dataset import CHMMBaseDataset, collate_fn
+from src.chmm.train import CHMMTrainer
+from src.bert.dataset import BertNERDataset
+from src.bert.train import BertTrainer
+from src.alt.args import AltArguments, AltConfig
 
 logger = logging.getLogger(__name__)
 
@@ -35,22 +32,22 @@ def chmm_train(args: AltArguments):
 
     # setup CHMM datasets
     chmm_training_dataset = chmm_valid_dataset = chmm_test_dataset = None
-    if args.train_file:
+    if args.train_path:
         logger.info('Loading training dataset for CHMM...')
         chmm_training_dataset = CHMMBaseDataset().load_file(
-            file_path=args.train_file,
+            file_path=args.train_path,
             config=config
         )
-    if args.valid_file:
+    if args.valid_path:
         logger.info('Loading validation dataset for CHMM...')
         chmm_valid_dataset = CHMMBaseDataset().load_file(
-            file_path=args.valid_file,
+            file_path=args.valid_path,
             config=config
         )
-    if args.test_file:
+    if args.test_path:
         logger.info('Loading test dataset for CHMM...')
         chmm_test_dataset = CHMMBaseDataset().load_file(
-            file_path=args.test_file,
+            file_path=args.test_path,
             config=config
         )
 
@@ -69,14 +66,14 @@ def chmm_train(args: AltArguments):
         test_dataset=chmm_test_dataset,
     ).initialize_trainer()
 
-    if args.train_file:
+    if args.train_path:
         logger.info("Start training CHMM.")
         valid_results = chmm_trainer.train()
     else:
         chmm_trainer.load(os.path.join(args.output_dir, 'chmm.bin'), load_optimizer_and_scheduler=True)
         valid_results = None
 
-    if args.test_file:
+    if args.test_path:
         logger.info("Start testing CHMM.")
 
         test_metrics = chmm_trainer.test()
@@ -117,19 +114,19 @@ def chmm_train(args: AltArguments):
     torch.cuda.empty_cache()
 
     bert_training_dataset = bert_valid_dataset = bert_test_dataset = None
-    if args.train_file:
+    if args.train_path:
         logger.info('Constructing training dataset for BERT...')
         bert_training_dataset = BertNERDataset(
             text=[txt[1:] for txt in chmm_training_dataset.text],  # remove the sentence header
             lbs=[lbs[1:] for lbs in chmm_out]  # use the predicted labels as BERT training objective
         ).encode_text_and_lbs(config=config)
-    if args.valid_file:
+    if args.valid_path:
         logger.info('Constructing validation dataset for BERT...')
         bert_valid_dataset = BertNERDataset(
             text=[txt[1:] for txt in chmm_valid_dataset.text],  # remove the sentence header
             lbs=[lbs[1:] for lbs in chmm_valid_dataset.lbs]  # use true labels for validation and test
         ).encode_text_and_lbs(config=config)
-    if args.test_file:
+    if args.test_path:
         logger.info('Constructing test dataset for BERT...')
         bert_test_dataset = BertNERDataset(
             text=[txt[1:] for txt in chmm_test_dataset.text],  # remove the sentence header
@@ -143,14 +140,14 @@ def chmm_train(args: AltArguments):
         test_dataset=bert_test_dataset,
     ).initialize_trainer()
 
-    if args.train_file:
+    if args.train_path:
         logger.info("Start training Bert...")
         valid_results = bert_trainer.train()
     else:
         bert_trainer.load(args.output_dir, load_optimizer_and_scheduler=True)
         valid_results = None
 
-    if args.test_file:
+    if args.test_path:
         logger.info("Start testing Bert...")
         test_metrics = bert_trainer.test()
     else:
@@ -187,20 +184,20 @@ def chmm_train(args: AltArguments):
 
         logger.info("Updating CHMM dataset...")
 
-        if args.train_file:
+        if args.train_path:
             bert_pred_lbs_train, _ = bert_trainer.predict(bert_training_dataset)
             # make sure the predicted labels are valid spans (do not start with I-)
             bert_pred_lbs_train = [span_to_label(label_to_span(lbs), tks) for lbs, tks in
                                    zip(bert_pred_lbs_train, bert_training_dataset.text)]
             chmm_training_dataset.update_obs(bert_pred_lbs_train, 'BertLabels', config)
 
-        if args.valid_file:
+        if args.valid_path:
             bert_pred_lbs_valid, _ = bert_trainer.predict(bert_valid_dataset)
             bert_pred_lbs_valid = [span_to_label(label_to_span(lbs), tks) for lbs, tks in
                                    zip(bert_pred_lbs_valid, bert_valid_dataset.text)]
             chmm_valid_dataset.update_obs(bert_pred_lbs_valid, 'BertLabels', config)
 
-        if args.test_file:
+        if args.test_path:
             bert_pred_lbs_test, _ = bert_trainer.predict(bert_test_dataset)
             bert_pred_lbs_test = [span_to_label(label_to_span(lbs), tks) for lbs, tks in
                                   zip(bert_pred_lbs_test, bert_test_dataset.text)]
@@ -214,14 +211,14 @@ def chmm_train(args: AltArguments):
             test_dataset=chmm_test_dataset,
         ).initialize_trainer()
 
-        if args.train_file:
+        if args.train_path:
             logger.info("Start training CHMM.")
             valid_results = chmm_trainer.train()
         else:
             chmm_trainer.load(os.path.join(args.output_dir, 'chmm.bin'), load_optimizer_and_scheduler=True)
             valid_results = None
 
-        if args.test_file:
+        if args.test_path:
             logger.info("Start testing CHMM.")
             test_metrics = chmm_trainer.test()
 
@@ -258,7 +255,7 @@ def chmm_train(args: AltArguments):
         torch.cuda.empty_cache()
 
         logger.info("Updating BERT dataset")
-        if args.train_file:
+        if args.train_path:
             bert_training_dataset.lbs = [lbs[1:] for lbs in chmm_out]
             bert_training_dataset.encode_text_and_lbs(config=config)
 
@@ -272,14 +269,14 @@ def chmm_train(args: AltArguments):
             tokenizer=bert_trainer.tokenizer
         )
 
-        if args.train_file:
+        if args.train_path:
             logger.info("Start training Bert...")
             valid_results = bert_trainer.train()
         else:
             bert_trainer.load(args.output_dir, load_optimizer_and_scheduler=True)
             valid_results = None
 
-        if args.test_file:
+        if args.test_path:
             logger.info("Start testing Bert...")
 
             test_metrics = bert_trainer.test()

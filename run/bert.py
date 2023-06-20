@@ -1,9 +1,6 @@
 # coding=utf-8
 """ Fully supervised BERT-NER """
 
-import sys
-sys.path.append('..')
-
 import logging
 import os
 import sys
@@ -18,9 +15,9 @@ from transformers import (
 
 from seqlbtoolkit.io import set_logging, logging_args
 
-from end_model.bert.data import BertNERDataset
-from end_model.bert.train import BertTrainer
-from end_model.bert.args import BertArguments, BertConfig
+from src.bert.dataset import BertNERDataset
+from src.bert.train import BertTrainer
+from src.bert.args import BertArguments, BertConfig
 
 logger = logging.getLogger(__name__)
 
@@ -30,27 +27,26 @@ def bert_train(args: BertArguments):
     config = BertConfig().from_args(args)
 
     training_dataset = valid_dataset = test_dataset = None
-    # TODO: notice that BERT data does not append extra token in front of the text
-    if args.train_file:
+    if args.train_path:
         logger.info('Loading training dataset...')
         training_dataset = BertNERDataset().load_file(
-            file_path=args.train_file,
+            file_path=args.train_path,
             config=config
         ).encode_text_and_lbs(config=config)
         logger.info(f'Training dataset loaded, length={len(training_dataset)}')
 
-    if args.valid_file:
+    if args.valid_path:
         logger.info('Loading validation dataset...')
         valid_dataset = BertNERDataset().load_file(
-            file_path=args.valid_file,
+            file_path=args.valid_path,
             config=config
         ).encode_text_and_lbs(config=config)
         logger.info(f'Validation dataset loaded, length={len(valid_dataset)}')
 
-    if args.test_file:
+    if args.test_path:
         logger.info('Loading test dataset...')
         test_dataset = BertNERDataset().load_file(
-            file_path=args.test_file,
+            file_path=args.test_path,
             config=config
         ).encode_text_and_lbs(config=config)
         logger.info(f'Test dataset loaded, length={len(test_dataset)}')
@@ -66,14 +62,14 @@ def bert_train(args: BertArguments):
         test_dataset=test_dataset,
     ).initialize_trainer()
 
-    if args.train_file:
+    if args.train_path:
         logger.info("Start training Bert.")
         valid_results = bert_trainer.train()
     else:
         bert_trainer.load(args.output_dir, load_optimizer_and_scheduler=True)
         valid_results = None
 
-    if args.test_file:
+    if args.test_path:
         logger.info("Start testing Bert.")
 
         test_metrics = bert_trainer.test()

@@ -10,12 +10,11 @@ from seqeval.scheme import IOB2
 
 import torch
 from torch.utils.data import DataLoader
-
-from .args import CHMMConfig
-
-from seqlbtoolkit.training.dataset import load_data_from_json, load_data_from_pt
 from seqlbtoolkit.data import entity_to_bio_labels, one_hot, probs_to_lbs
 from seqlbtoolkit.embs import build_bert_token_embeddings
+
+from .args import CHMMConfig
+from ..utils.io import load_data_from_json, load_data_from_pt
 
 logger = logging.getLogger(__name__)
 
