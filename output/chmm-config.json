@@ -1,0 +1,59 @@
+{
+  "entity_types": [
+    "TERM"
+  ],
+  "bio_label_types": [
+    "O",
+    "B-TERM",
+    "I-TERM"
+  ],
+  "train_path": "./data/LaptopReview/train.json",
+  "valid_path": "./data/LaptopReview/valid.json",
+  "test_path": "./data/LaptopReview/test.json",
+  "output_dir": "./output",
+  "save_dataset": false,
+  "save_dataset_to_data_dir": false,
+  "load_preprocessed_dataset": false,
+  "track_training_time": false,
+  "trans_nn_weight": 1.0,
+  "no_neural_emiss": false,
+  "emiss_nn_weight": 1.0,
+  "num_lm_train_epochs": 15,
+  "num_lm_nn_pretrain_epochs": 10,
+  "num_lm_valid_tolerance": 50,
+  "hmm_lr": 0.01,
+  "nn_lr": 0.0001,
+  "lm_batch_size": 16,
+  "obs_normalization": true,
+  "bert_model_name_or_path": "distilbert-base-uncased",
+  "no_cuda": false,
+  "log_dir": "logs/chmm-train/06.20.23-16.34.log",
+  "seed": 1,
+  "debug_mode": false,
+  "sources": [
+    "tag-CoreDictionary",
+    "link-ExtractedPhrase",
+    "link-ConsecutiveCapitals"
+  ],
+  "src_priors": {
+    "tag-CoreDictionary": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "link-ExtractedPhrase": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    },
+    "link-ConsecutiveCapitals": {
+      "TERM": [
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "d_emb": 768
+}

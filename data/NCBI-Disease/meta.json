@@ -1,0 +1,58 @@
+{
+  "lf": [
+    "tag-CoreDictionaryUncased",
+    "tag-CoreDictionaryExact",
+    "tag-CancerLike",
+    "tag-CommonSuffixes",
+    "tag-Deficiency",
+    "tag-Disorder",
+    "tag-Lesion",
+    "tag-Syndrome",
+    "tag-BodyTerms",
+    "tag-OtherPOS",
+    "tag-StopWords",
+    "tag-Punctuation",
+    "link-PossessivePhrase",
+    "link-HyphenatedPhrase",
+    "link-ElmoLinkingRule",
+    "link-CommonBigram",
+    "link-ExtractedPhrase"
+  ],
+  "entity_types": [
+    "Disease"
+  ],
+  "train_size": 592,
+  "valid_size": 99,
+  "test_size ": 99,
+  "max_length": 503,
+  "num_lf": 17,
+  "num_labels": 3,
+  "lf_rec": [
+    "tag-CoreDictionaryUncased",
+    "tag-CoreDictionaryExact",
+    "tag-CancerLike",
+    "tag-BodyTerms",
+    "link-ExtractedPhrase"
+  ],
+  "num_lf_rec": 5,
+  "avg_length": 219.79240506329114,
+  "lf_f1": {
+    "tag-CoreDictionaryUncased": 0.5553731775610699,
+    "tag-CoreDictionaryExact": 0.3289692930254701,
+    "tag-CancerLike": 0.03153153153153153,
+    "tag-CommonSuffixes": 0.0,
+    "tag-Deficiency": 0.0,
+    "tag-Disorder": 0.0,
+    "tag-Lesion": 0.0,
+    "tag-Syndrome": 0.0,
+    "tag-BodyTerms": 0.06422271223814774,
+    "tag-OtherPOS": 0.0,
+    "tag-StopWords": 0.0,
+    "tag-Punctuation": 0.0,
+    "link-PossessivePhrase": 0.0,
+    "link-HyphenatedPhrase": 0.055450874831763114,
+    "link-ElmoLinkingRule": 0.0005828354946816261,
+    "link-CommonBigram": 0.0669816564758199,
+    "link-ExtractedPhrase": 0.5558691334796697
+  }
+}

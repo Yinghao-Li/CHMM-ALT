@@ -1,0 +1,32 @@
+[Epoch 1]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 2]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 3]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 4]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 5]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 6]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 7]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 8]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 9]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 10]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 11]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 12]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 13]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 14]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Epoch 15]
+  precision: 0.8208  recall: 0.6933  f1: 0.7517
+[Test]
+  precision: 0.8886  recall: 0.6233  f1: 0.7327

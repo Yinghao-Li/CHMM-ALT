@@ -1,0 +1,54 @@
+{
+  "lf": [
+    "tag-CoreDictionary",
+    "tag-OtherTerms",
+    "tag-ReplaceThe",
+    "tag-iStuff",
+    "tag-Feelings",
+    "tag-ProblemWithThe",
+    "tag-External",
+    "tag-StopWords",
+    "tag-Punctuation",
+    "tag-Pronouns",
+    "tag-NotFeatures",
+    "tag-Adv",
+    "link-CompoundPhrase",
+    "link-ElmoLinkingRule",
+    "link-ExtractedPhrase",
+    "link-ConsecutiveCapitals"
+  ],
+  "entity_types": [
+    "TERM"
+  ],
+  "train_size": 2436,
+  "valid_size": 609,
+  "test_size ": 800,
+  "max_length": 83,
+  "num_lf": 16,
+  "num_labels": 3,
+  "lf_rec": [
+    "tag-CoreDictionary",
+    "link-ExtractedPhrase",
+    "link-ConsecutiveCapitals"
+  ],
+  "num_lf_rec": 3,
+  "avg_length": 16.38777633289987,
+  "lf_f1": {
+    "tag-CoreDictionary": 0.6265582655826558,
+    "tag-OtherTerms": 0.011795543905635647,
+    "tag-ReplaceThe": 0.0013293452974410102,
+    "tag-iStuff": 0.02157567832625041,
+    "tag-Feelings": 0.013793103448275864,
+    "tag-ProblemWithThe": 0.0019940179461615157,
+    "tag-External": 0.006622516556291391,
+    "tag-StopWords": 0.0,
+    "tag-Punctuation": 0.0,
+    "tag-Pronouns": 0.0,
+    "tag-NotFeatures": 0.0,
+    "tag-Adv": 0.0,
+    "link-CompoundPhrase": 0.0,
+    "link-ElmoLinkingRule": 0.003980099502487563,
+    "link-ExtractedPhrase": 0.4306513409961686,
+    "link-ConsecutiveCapitals": 0.01893568396996409
+  }
+}
