@@ -18,18 +18,25 @@ Check out my follow-up to this work: [Sparse-CHMM](https://github.com/Yinghao-Li
 
 ## 1. Dependencies
 Please check `requirement.txt` for the package dependency requirement.
-The data construction program may need the specified versions of `spaCy` and `AllenNLP`.
-The model training program should be compatible with any package version.
+Notice that only the packages used for model training are listed in the file.
+Those for dataset construction are not listed for the reason mentioned below.
 
 ## 2. Dataset Construction
+
+### Pre-Processed Datasets
+
+The dataset construction program depends on several external libraries such as `AllenNLP`, `wiser` or `skweak`, some of which have conflict dependencies, some are no longer maintained.
+Building datasets from the source data could be hard under this situation.
+Hence, we directly post the pre-processed datasets in `.json` format under the `data` directory for reproduction.
+If you prefer building the dataset from source, you can refer to the following subsection.
+
+### Source Data
 
 The dataset construction program for the `NCBI-Disease`, `BC5CDR` and `LaptopReview` datasets is modified from the `wiser` project ([paper](http://cs.brown.edu/people/sbach/files/safranchik-aaai20.pdf))
 that contains three repos.
 
 The dataset construction program for the `CoNLL 2003` dataset is based on [skweak](https://github.com/NorskRegnesentral/skweak).
 
-
-### Source Data
 
 The source data are provided in the folders `data_constr/<DATASET NAME>/data`.
 You can also download the source data from the links below:
@@ -74,39 +81,24 @@ To reproduce the results in the paper, please refer to the dataset construction 
 We use the argument parsing techniques from the Huggingface `transformers` [repo](https://github.com/huggingface/transformers) in our program.
 It supports the ordinary argument parsing approach from shell inputs as well as parsing from `json` files.
 
-To try the code, clone this repo or your forked repo into the local machine and follow the instructions below.
-Notice that this repo contains a submodule, which will not be automatically downloaded with `clone`.
-To fetch the submodule content, use `git submodule update --init`.
-When you update your local repo with `git pull`, be sure to run `git submodule update --remote` to get the submodule updates.
-
-### Conditional hidden Markov model
+We have three entry files: `chmm.py`, `bert.py` and `alt.py`, which are all stored in the `run`.
+Each file corresponds to a component in our alternate training pipeline.
+In the `scripts` folder are the configuration files that defines the hyperparameters for model training.
+You can either use `.json` or `.sh`.
+Please make sure you are at the project directory (`[]/CHMM-ALT/`).
 
 To train and evaluate CHMM, go to `./label_model/` and run
 ```shell
-python chmm_train.py config.json
+PYHTONPATH="." CUDA_VISIBLE_DEVICES=0 python ./run/chmm.py ./scripts/config_chmm.json
 ```
-Here `conig.json` is just a demo configuration.
+Here `conig_chmm.json` is a configuration file only for demonstration.
+Another option is
+```shell
+sh ./scripts/run_chmm.sh
+```
 You need to fine-tune the hyper-parameters to get better performance.
 
-### BERT-NER
-
-You can train a fully-supervised BERT-NER model with ground truth labels by going to the `./end_model/` folder and run
-```shell
-python bert_train.py config.json
-```
-
-### Alternate training
-
-The file `./ALT/chmm-alt.py` realizes the alternate training technique introduced in the paper.
-you can train a CHMM and a BERT alternately with
-```shell
-./chmm-alt.sh
-```
-or
-```
-python chmm-alt.py config.json
-```
-
+The way to run BERT-NER (`./run/bert.py`) or Alternation training (`./run/alt.py`) is similar and will not be detailed.
 
 ## 4. Citation
 

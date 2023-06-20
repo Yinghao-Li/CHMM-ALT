@@ -29,11 +29,11 @@ NUM_PHASE2_LOOP=5
 NN_LR=0.0001
 SEED=0
 
-CUDA_VISIBLE_DEVICES=$1 python chmm-alt.py \
+PYTHONPATH="." CUDA_VISIBLE_DEVICES=$1 python ./run/alt.py \
     --bert_model_name_or_path $BERT_MODEL \
-    --train_file $TRAIN_FILE \
-    --valid_file $VALID_FILE \
-    --test_file $TEST_FILE \
+    --train_path $TRAIN_FILE \
+    --valid_path $VALID_FILE \
+    --test_path $TEST_FILE \
     --output_dir $OUTPUT_DIR \
     --max_length $MAX_SEQ_LENGTH \
     --lm_batch_size $LM_BATCH_SIZE \
